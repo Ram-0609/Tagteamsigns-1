@@ -13,12 +13,12 @@ export default function About() {
       />
       <div className="relative flex justify-center py-10 md:py-16">
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-            <div className="max-w-2xl rounded-lg bg-background p-8 shadow-2xl md:p-12">
+            <div className="max-w-2xl p-8 md:p-12">
                 <div className="mb-4 h-1 w-16 bg-primary"></div>
-                <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-foreground md:text-4xl">
+                <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-white md:text-4xl">
                 Who We Are
                 </h2>
-                <div className="space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                <div className="space-y-4 text-base leading-relaxed text-gray-200 md:text-lg">
                   <p>
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
