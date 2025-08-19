@@ -2,12 +2,12 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 
 const galleryItems = [
-  { src: "https://placehold.co/600x400.png", alt: "Storefront sign example", hint: "storefront sign" },
-  { src: "https://placehold.co/600x400.png", alt: "Commercial sign example", hint: "commercial sign" },
-  { src: "https://placehold.co/600x400.png", alt: "Monument sign example", hint: "monument sign" },
-  { src: "https://placehold.co/600x400.png", alt: "LED sign example", hint: "led sign" },
-  { src: "https://placehold.co/600x400.png", alt: "Office sign example", hint: "office sign" },
-  { src: "https://placehold.co/600x400.png", alt: "Building sign example", hint: "building sign" },
+  { src: "https://placehold.co/600x600.png", alt: "Storefront sign example", hint: "storefront sign" },
+  { src: "https://placehold.co/600x600.png", alt: "Commercial sign example", hint: "commercial sign" },
+  { src: "https://placehold.co/600x600.png", alt: "Monument sign example", hint: "monument sign" },
+  { src: "https://placehold.co/600x600.png", alt: "LED sign example", hint: "led sign" },
+  { src: "https://placehold.co/600x600.png", alt: "Office sign example", hint: "office sign" },
+  { src: "https://placehold.co/600x600.png", alt: "Building sign example", hint: "building sign" },
 ];
 
 export default function Work() {
@@ -24,18 +24,18 @@ export default function Work() {
         </div>
       </div>
       <div className="bg-background py-10 md:py-16">
-        <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {galleryItems.map((item, index) => (
-              <Card key={index} className="overflow-hidden shadow-lg transition-shadow hover:shadow-2xl">
-                <CardContent className="p-0">
-                  <div className="overflow-hidden">
+              <Card key={index} className="overflow-hidden shadow-lg transition-shadow hover:shadow-2xl aspect-square">
+                <CardContent className="p-0 h-full">
+                  <div className="overflow-hidden h-full">
                     <Image
                       src={item.src}
                       alt={item.alt}
                       data-ai-hint={item.hint}
                       width={600}
-                      height={400}
+                      height={600}
                       className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                     />
                   </div>
