@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 
 const galleryItems = [
+  { src: "https://static.wixstatic.com/media/282ef0_e357c3f3d41b4f43ae84bb7c5677cd97~mv2.jpg/v1/fill/w_600,h_600,fp_0.51_0.51,q_90/282ef0_e357c3f3d41b4f43ae84bb7c5677cd97~mv2.jpg", alt: "Custom storefront sign", hint: "storefront sign" },
   { src: "https://placehold.co/600x600.png", alt: "Storefront sign example", hint: "storefront sign" },
   { src: "https://placehold.co/600x600.png", alt: "Commercial sign example", hint: "commercial sign" },
   { src: "https://placehold.co/600x600.png", alt: "Monument sign example", hint: "monument sign" },
