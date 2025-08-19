@@ -13,14 +13,14 @@ const galleryItems = [
 export default function Work() {
   return (
     <section id="work" className="w-full" aria-labelledby="work-heading">
-      <div className="bg-secondary py-10 text-secondary-foreground md:py-16">
+      <div className="bg-primary py-10 text-primary-foreground md:py-16">
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-            <div className="mb-4 h-1 w-16 bg-primary"></div>
+            <div className="mb-4 h-1 w-16 bg-white"></div>
             <h2 id="work-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
                 <div>Our</div>
                 <div>Work</div>
             </h2>
-          <p className="max-w-3xl text-lg text-secondary-foreground/90">
+          <p className="max-w-3xl text-lg text-primary-foreground/90">
             We take pride in the signs we create, from modern storefront designs to durable monument signs. Our mission is to deliver quality, clarity, and long-lasting impact in every project.
           </p>
         </div>
