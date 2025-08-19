@@ -4,7 +4,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -16,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { AnimatedSubmitButton } from "./animated-submit-button";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -46,7 +46,7 @@ export default function Contact() {
       title: "Message Sent!",
       description: "Thanks for reaching out. We'll get back to you soon.",
     });
-    form.reset();
+    // form.reset(); // Commented out to allow seeing the animation reset
   }
 
   return (
@@ -100,9 +100,7 @@ export default function Contact() {
                 )}
               />
               <div className="flex justify-end pt-2">
-                 <Button type="submit" size="lg" className="w-full shadow-md md:w-auto">
-                    Submit
-                </Button>
+                 <AnimatedSubmitButton />
               </div>
             </form>
           </Form>
