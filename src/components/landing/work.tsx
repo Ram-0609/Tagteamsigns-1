@@ -21,7 +21,7 @@ export default function Work() {
                 <div>Work</div>
             </h2>
           <p className="max-w-3xl text-lg text-primary-foreground/90">
-            We take pride in the signs we create, from modern storefront designs to durable monument signs. Our mission is to deliver quality, clarity, and long-lasting impact in every project.
+            Discover how TagTeamSigns is your best resource for creative, quality sign solutions. Our highly trained staff is committed to give you exceptional customer service. From start to finish, you'll see how we make the most out of the latest technologies to design, create and install virtually any type of sign. We streamline the sign buying process for you from Concept to Completion.
           </p>
         </div>
       </div>
