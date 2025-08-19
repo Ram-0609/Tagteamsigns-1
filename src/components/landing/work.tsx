@@ -15,9 +15,10 @@ export default function Work() {
     <section id="work" className="w-full" aria-labelledby="work-heading">
       <div className="bg-primary py-10 text-primary-foreground md:py-16">
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-          <h2 id="work-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
-            Our Work
-          </h2>
+            <h2 id="work-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
+                <div>Our</div>
+                <div>Work</div>
+            </h2>
           <p className="max-w-3xl text-lg text-primary-foreground/90">
             We take pride in the signs we create, from modern storefront designs to durable monument signs. Our mission is to deliver quality, clarity, and long-lasting impact in every project.
           </p>
