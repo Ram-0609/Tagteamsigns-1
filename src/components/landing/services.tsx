@@ -8,7 +8,7 @@ const services = [
   },
   {
     name: "Commercial Signs",
-    icon: "https://static.wixstatic.com/media/282ef0_f29c16715b744a539da524c9891845c4~mv2.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Commercial.png",
+    icon: "https://static.wixstatic.com/media/282ef0_ccdad8e6e38d4a7f9781dfa5250b0439~mv2.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Commercial.png",
     hint: "commercial sign icon"
   },
   {
