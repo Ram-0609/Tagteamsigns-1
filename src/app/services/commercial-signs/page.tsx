@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const galleryImages = [
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://www.davessigns.com/wp-content/uploads/2024/07/6ef39846-07d4-4269-9606-6ac9ec872a3f.jpeg',
     alt: 'Modern commercial building sign',
     hint: 'commercial sign',
   },
