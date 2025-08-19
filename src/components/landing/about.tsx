@@ -4,10 +4,10 @@ export default function About() {
     <section 
       id="about" 
       className="relative w-full py-10 md:py-16 bg-cover bg-center bg-no-repeat" 
-      style={{backgroundImage: "url('https://static.wixstatic.com/media/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg/v1/fill/w_1057,h_499,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg')"}}
+      style={{backgroundImage: "url('https://static.wixstatic.com/media/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg')"}}
       aria-labelledby="about-heading"
     >
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/60"></div>
       <div className="relative flex justify-center py-10 md:py-16">
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
             <div className="mx-auto max-w-2xl p-8 text-center md:p-12">
