@@ -20,7 +20,7 @@ export default function About() {
                 Who We Are
                 </h2>
                 <div className="space-y-4 text-base leading-relaxed text-gray-200 md:text-lg">
-                  <p className="text-white">
+                  <p>
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
                   <ul className="list-disc list-inside space-y-1">
@@ -34,7 +34,7 @@ export default function About() {
                     <li className="text-primary">Permit Processing</li>
                     <li className="text-primary">Licensed, Bonded and Insured</li>
                   </ul>
-                  <p className="text-white">
+                  <p>
                     Give us a call today for a Free Estimate!
                   </p>
                 </div>
