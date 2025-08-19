@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const galleryImages = [
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://i.postimg.cc/13Yx4m4v/signage-mockup-inspiration-53876-95932.jpg',
     alt: 'Illuminated channel letters for a modern storefront',
     hint: 'storefront sign',
   },
