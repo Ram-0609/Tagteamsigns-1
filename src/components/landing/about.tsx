@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section id="about" className="relative w-full py-10 md:py-16" aria-labelledby="about-heading">
       <Image
-        src="https://placehold.co/1920x1080.png"
+        src="https://static.wixstatic.com/media/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg/v1/fill/w_1057,h_499,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg"
         alt="Blurred background of sign fabrication"
         data-ai-hint="sign fabrication"
         fill
@@ -22,7 +22,7 @@ export default function About() {
                   <p className="text-black">
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
-                  <ul className="list-disc list-inside space-y-1">
+                  <ul className="list-disc list-inside space-y-1 text-white">
                     <li>Pan Channel Letters</li>
                     <li>Reversed Pan Channel Letters</li>
                     <li>LED Illumination</li>
@@ -33,7 +33,7 @@ export default function About() {
                     <li>Permit Processing</li>
                     <li>Licensed, Bonded and Insured</li>
                   </ul>
-                  <p>
+                  <p className="text-white">
                     Give us a call today for a Free Estimate!
                   </p>
                 </div>
