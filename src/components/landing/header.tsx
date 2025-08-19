@@ -4,13 +4,14 @@ import { useState, useEffect, useRef } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: "#home", label: "Home", id: "home" },
-  { href: "#services", label: "Service", id: "services" },
-  { href: "#about", label: "About Us", id: "about" },
-  { href: "#work", label: "Work", id: "work" },
-  { href: "#contact", label: "Contact", id: "contact" },
+  { href: "/#home", label: "Home", id: "home" },
+  { href: "/#services", label: "Service", id: "services" },
+  { href: "/#about", label: "About Us", id: "about" },
+  { href: "/#work", label: "Work", id: "work" },
+  { href: "/#contact", label: "Contact", id: "contact" },
 ];
 
 const UNDERLINE_WIDTH = 24; 
@@ -21,9 +22,12 @@ export default function Header() {
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const navRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
+      if (!isHomePage) return;
       const sections = navLinks.map((link) =>
         document.getElementById(link.id)
       );
@@ -40,22 +44,30 @@ export default function Header() {
       setActiveSection(currentSection);
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (isHomePage) {
+      handleScroll();
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      setActiveSection('');
+    }
+  }, [isHomePage]);
 
   useEffect(() => {
-    const activeLink = linksRef.current[activeSection];
-    if (activeLink) {
-        const linkWidth = activeLink.offsetWidth;
-        const left = activeLink.offsetLeft + (linkWidth - UNDERLINE_WIDTH) / 2;
-        setUnderlineStyle({
-            left: left,
-            width: UNDERLINE_WIDTH,
-        });
+    if (isHomePage) {
+      const activeLink = linksRef.current[activeSection];
+      if (activeLink) {
+          const linkWidth = activeLink.offsetWidth;
+          const left = activeLink.offsetLeft + (linkWidth - UNDERLINE_WIDTH) / 2;
+          setUnderlineStyle({
+              left: left,
+              width: UNDERLINE_WIDTH,
+          });
+      }
+    } else {
+      setUnderlineStyle({ left: 0, width: 0 });
     }
-  }, [activeSection]);
+  }, [activeSection, isHomePage]);
 
 
   const NavLink = ({ href, label, id }: { href: string; label: string; id: string }) => (
@@ -75,7 +87,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-white">
       <div className="container flex h-16 max-w-[1200px] items-center justify-between px-6 md:px-12">
-        <a href="#home" className="flex items-center gap-2">
+        <a href="/#home" className="flex items-center gap-2">
           <div className="flex flex-col">
             <span className="font-headline text-lg font-extrabold tracking-tight text-primary">
               TAGTEAMSIGNS
@@ -89,10 +101,12 @@ export default function Header() {
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
           ))}
-          <div
-            className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-in-out"
-            style={{ left: underlineStyle.left, width: underlineStyle.width }}
-          />
+          {isHomePage && (
+            <div
+              className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-in-out"
+              style={{ left: underlineStyle.left, width: underlineStyle.width }}
+            />
+          )}
         </nav>
         <div className="md:hidden">
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
@@ -113,7 +127,7 @@ export default function Header() {
                         }`}
                     >
                         {link.label}
-                        {activeSection === link.id && (
+                        {activeSection === link.id && isHomePage && (
                             <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-6 bg-primary transition-all"></span>
                         )}
                     </a>
