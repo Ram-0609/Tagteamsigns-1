@@ -23,26 +23,24 @@ export default function Work() {
           </p>
         </div>
       </div>
-      <div className="bg-background py-10 md:py-16">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {galleryItems.map((item, index) => (
-              <Card key={index} className="overflow-hidden shadow-lg transition-shadow hover:shadow-2xl aspect-square">
-                <CardContent className="p-0 h-full">
-                  <div className="overflow-hidden h-full">
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      data-ai-hint={item.hint}
-                      width={600}
-                      height={600}
-                      className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+      <div className="bg-background">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+          {galleryItems.map((item, index) => (
+            <Card key={index} className="overflow-hidden shadow-none rounded-none border-0 transition-shadow hover:shadow-2xl aspect-square">
+              <CardContent className="p-0 h-full">
+                <div className="overflow-hidden h-full">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    data-ai-hint={item.hint}
+                    width={600}
+                    height={600}
+                    className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
