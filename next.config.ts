@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname: 'static.wixstatic.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.postimg.cc',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

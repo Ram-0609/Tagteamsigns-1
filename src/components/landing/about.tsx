@@ -1,6 +1,6 @@
 
 export default function About() {
-  const backgroundImageUrl = "https://static.wixstatic.com/media/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg";
+  const backgroundImageUrl = "https://i.postimg.cc/13GJP4St/image.png";
 
   return (
     <section 
