@@ -16,7 +16,7 @@ export default function About() {
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
             <div className="max-w-2xl p-8 md:p-12">
                 <div className="mb-4 h-1 w-16 bg-primary"></div>
-                <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-white md:text-4xl">
+                <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-black md:text-4xl">
                   <div>Who</div>
                   <div>We Are</div>
                 </h2>
