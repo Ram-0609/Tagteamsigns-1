@@ -64,7 +64,7 @@ export default function Header() {
       ref={(el) => { linksRef.current[id] = el; }}
       data-id={id}
       onClick={() => setIsSheetOpen(false)}
-      className={`relative z-10 px-3 py-2 font-medium uppercase tracking-wider transition-colors hover:text-primary ${
+      className={`relative z-10 px-3 py-2 font-headline text-sm font-extrabold uppercase tracking-tight transition-colors hover:text-primary ${
         activeSection === id ? "text-primary" : "text-foreground"
       }`}
     >
@@ -90,7 +90,7 @@ export default function Header() {
             <NavLink key={link.href} {...link} />
           ))}
           <div
-            className="absolute bottom-0 h-1 bg-primary transition-all duration-300 ease-in-out"
+            className="absolute bottom-0 h-[2px] bg-primary transition-all duration-300 ease-in-out"
             style={{ left: underlineStyle.left, width: underlineStyle.width }}
           />
         </nav>
@@ -108,7 +108,7 @@ export default function Header() {
                         key={link.href}
                         href={link.href}
                         onClick={() => setIsSheetOpen(false)}
-                        className={`relative py-2 font-medium uppercase tracking-wider transition-colors hover:text-primary ${
+                        className={`relative py-2 font-headline font-extrabold uppercase tracking-tight transition-colors hover:text-primary ${
                             activeSection === link.id ? "text-primary" : "text-foreground"
                         }`}
                     >
