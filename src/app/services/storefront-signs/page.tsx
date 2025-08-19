@@ -17,7 +17,7 @@ const galleryImages = [
     hint: 'storefront sign',
   },
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://www.davessigns.com/wp-content/uploads/2023/04/bf5398cf-36b4-40ae-81b6-61d977d2ab19.jpg',
     alt: 'Dimensional letter sign on a brick wall',
     hint: 'storefront sign',
   },
