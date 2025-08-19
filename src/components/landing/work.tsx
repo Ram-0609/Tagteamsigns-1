@@ -7,7 +7,7 @@ const galleryItems = [
   { src: "https://static.wixstatic.com/media/282ef0_b59b063b2f6949b3832e5bcab1ec9f21~mv2.jpg/v1/fill/w_600,h_600,fp_0.48_0.48,q_90/282ef0_b59b063b2f6949b3832e5bcab1ec9f21~mv2.jpg", alt: "Commercial sign example", hint: "commercial sign" },
   { src: "https://static.wixstatic.com/media/282ef0_49577ce71b394d1da77d3fd360995bff~mv2.jpg/v1/fill/w_600,h_600,q_90/282ef0_49577ce71b394d1da77d3fd360995bff~mv2.jpg", alt: "Monument sign example", hint: "monument sign" },
   { src: "https://static.wixstatic.com/media/282ef0_e36878464fd742c9b815b5f70472d674~mv2.jpg/v1/fill/w_600,h_600,fp_0.48_0.48,q_90/282ef0_e36878464fd742c9b815b5f70472d674~mv2.jpg", alt: "LED sign example", hint: "led sign" },
-  { src: "https://placehold.co/600x600.png", alt: "Office sign example", hint: "office sign" },
+  { src: "https://static.wixstatic.com/media/282ef0_c745e3d5d2624c038d197ad1fc7ea28f~mv2.jpg/v1/fill/w_600,h_600,fp_0.51_0.51,q_90/282ef0_c745e3d5d2624c038d197ad1fc7ea28f~mv2.jpg", alt: "Custom sign example", hint: "custom sign" },
   { src: "https://placehold.co/600x600.png", alt: "Building sign example", hint: "building sign" },
 ];
 
