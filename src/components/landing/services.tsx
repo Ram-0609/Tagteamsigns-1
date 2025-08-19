@@ -13,7 +13,7 @@ const services = [
   },
   {
     name: "Monument Signs",
-    icon: "https://static.wixstatic.com/media/282ef0_b0a1d6153d864b28b584a5a54e99553f~mv2.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Monument.png",
+    icon: "https://static.wixstatic.com/media/282ef0_d509f74067334fa5a228dda2c4c2594b~mv2.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Monument.png",
     hint: "monument sign icon"
   },
   {
