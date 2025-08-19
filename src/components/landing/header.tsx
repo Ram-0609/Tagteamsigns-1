@@ -45,12 +45,10 @@ export default function Header() {
 
   useEffect(() => {
     const activeLink = linksRef.current[activeSection];
-    if (activeLink && navRef.current) {
-        const navRect = navRef.current.getBoundingClientRect();
-        const linkRect = activeLink.getBoundingClientRect();
+    if (activeLink) {
         setUnderlineStyle({
-            left: linkRect.left - navRect.left,
-            width: linkRect.width,
+            left: activeLink.offsetLeft,
+            width: activeLink.offsetWidth,
         });
     }
   }, [activeSection]);
