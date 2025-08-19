@@ -41,11 +41,14 @@ export default function Header() {
     <a
       href={href}
       onClick={() => setIsSheetOpen(false)}
-      className={`font-medium uppercase tracking-wider transition-colors hover:text-primary ${
+      className={`relative py-2 font-medium uppercase tracking-wider transition-colors hover:text-primary ${
         activeSection === href.substring(1) ? "text-primary" : "text-foreground"
       }`}
     >
       {label}
+      {activeSection === href.substring(1) && (
+        <span className="absolute bottom-0 left-0 h-0.5 w-full bg-primary transition-all"></span>
+      )}
     </a>
   );
 
