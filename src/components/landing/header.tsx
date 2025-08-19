@@ -65,7 +65,7 @@ export default function Header() {
       data-id={id}
       onClick={() => setIsSheetOpen(false)}
       className={`relative z-10 px-3 py-2 font-headline text-sm font-extrabold uppercase tracking-tight transition-colors hover:text-primary ${
-        activeSection === id ? "text-primary" : "text-muted-foreground"
+        activeSection === id ? "text-primary" : "text-foreground"
       }`}
     >
       {label}
@@ -73,7 +73,7 @@ export default function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background">
       <div className="container flex h-16 max-w-[1200px] items-center justify-between px-6 md:px-12">
         <a href="#home" className="flex items-center gap-2">
           <div className="flex flex-col">
@@ -109,7 +109,7 @@ export default function Header() {
                         href={link.href}
                         onClick={() => setIsSheetOpen(false)}
                         className={`relative py-2 font-headline font-extrabold uppercase tracking-tight transition-colors hover:text-primary ${
-                            activeSection === link.id ? "text-primary" : "text-muted-foreground"
+                            activeSection === link.id ? "text-primary" : "text-foreground"
                         }`}
                     >
                         {link.label}
