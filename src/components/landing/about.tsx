@@ -11,7 +11,7 @@ export default function About() {
                   <div>We Are</div>
                 </h2>
                 <div className="space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                  <p>
+                  <p className="text-foreground">
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
                   <ul className="list-disc list-inside space-y-1 text-left max-w-sm mx-auto">
