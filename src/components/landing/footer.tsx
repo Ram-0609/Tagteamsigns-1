@@ -11,7 +11,7 @@ export default function Footer() {
           <a href="https://www.instagram.com/tagteamsigns/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transition-colors hover:text-primary">
             <Instagram className="h-5 w-5" />
           </a>
-          <a href="#" aria-label="LinkedIn" className="transition-colors hover:text-primary">
+          <a href="https://www.linkedin.com/in/tag-team-signs-34985756/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-primary">
             <Linkedin className="h-5 w-5" />
           </a>
         </div>
