@@ -17,10 +17,11 @@ export default function About() {
             <div className="max-w-2xl p-8 md:p-12">
                 <div className="mb-4 h-1 w-16 bg-primary"></div>
                 <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-white md:text-4xl">
-                Who We Are
+                  <div>Who</div>
+                  <div>We Are</div>
                 </h2>
                 <div className="space-y-4 text-base leading-relaxed text-gray-200 md:text-lg">
-                  <p>
+                  <p className="text-gray-200">
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
                   <ul className="list-disc list-inside space-y-1">
@@ -34,7 +35,7 @@ export default function About() {
                     <li className="text-primary">Permit Processing</li>
                     <li className="text-primary">Licensed, Bonded and Insured</li>
                   </ul>
-                  <p>
+                  <p className="text-gray-200">
                     Give us a call today for a Free Estimate!
                   </p>
                 </div>
