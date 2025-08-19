@@ -1,6 +1,6 @@
 
 export default function About() {
-  const backgroundImageUrl = "https://i.postimg.cc/13GJP4St/image.png";
+  const backgroundImageUrl = "https://i.postimg.cc/bwyzxmnL/bg-image.avif";
 
   return (
     <section 
@@ -18,11 +18,11 @@ export default function About() {
       <div className="container relative z-10 mx-auto max-w-[1200px] px-6 md:px-12">
         <div className="max-w-2xl text-left">
           <div className="mb-4 h-1 w-16 bg-primary"></div>
-          <h2 id="about-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
+          <h2 id="about-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight text-white md:mb-12 md:text-8xl">
             <div>Who</div>
             <div>We Are</div>
           </h2>
-          <div className="space-y-4 text-base leading-relaxed md:text-lg">
+          <div className="space-y-4 text-base leading-relaxed text-white md:text-lg">
             <p>
               We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
             </p>
