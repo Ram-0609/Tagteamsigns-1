@@ -3,6 +3,25 @@ import Footer from '@/components/landing/footer';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+import Image from 'next/image';
+
+const galleryImages = [
+  {
+    src: 'https://placehold.co/600x400.png',
+    alt: 'Illuminated channel letters for a modern storefront',
+    hint: 'storefront sign',
+  },
+  {
+    src: 'https://placehold.co/600x400.png',
+    alt: 'Awnings with branded graphics for a restaurant',
+    hint: 'storefront sign',
+  },
+  {
+    src: 'https://placehold.co/600x400.png',
+    alt: 'Dimensional letter sign on a brick wall',
+    hint: 'storefront sign',
+  },
+];
 
 export default function StorefrontSignsPage() {
   return (
@@ -15,13 +34,28 @@ export default function StorefrontSignsPage() {
             Back to Services
           </Button>
         </Link>
-        <h1 className="mb-8 font-headline text-5xl font-bold uppercase tracking-tight md:text-7xl">
-          Storefront Signs
-        </h1>
-        <div className="space-y-6 text-lg">
-          <p>
-            This is a placeholder page for Storefront Signs. You can add more content here about this service.
+        <div className="prose max-w-none">
+          <h1 className="mb-8 font-headline text-5xl font-bold uppercase tracking-tight md:text-7xl">
+            Storefront Signs
+          </h1>
+          <p className="text-lg">
+            Make a lasting first impression with a high-quality storefront sign. We design, build, and install a wide variety of signs to match your brand and attract customers. From classic designs to modern illuminated displays, we have the solution for you.
           </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+          {galleryImages.map((image, index) => (
+            <div key={index} className="overflow-hidden rounded-lg shadow-lg">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                data-ai-hint={image.hint}
+                width={600}
+                height={400}
+                className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+              />
+            </div>
+          ))}
         </div>
       </main>
       <Footer />
