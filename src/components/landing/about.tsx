@@ -14,7 +14,7 @@ export default function About() {
       }}
       aria-labelledby="about-heading"
     >
-      <div className="absolute inset-0 bg-black/60"></div>
+      
       <div className="container relative z-10 mx-auto max-w-[1200px] px-6 md:px-12">
         <div className="max-w-2xl text-left">
           <div className="mb-4 h-1 w-16 bg-primary"></div>
