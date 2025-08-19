@@ -16,7 +16,7 @@ export default function Footer() {
           </a>
         </div>
         <div className="text-center md:text-right">
-          <p>&copy; {new Date().getFullYear()} TAGTEAMSIGNS &bull; AN HONIST PRODUCTION</p>
+          <p className="no-underline">&copy; {new Date().getFullYear()} TAGTEAMSIGNS &bull; AN HONIST PRODUCTION</p>
         </div>
       </div>
     </footer>
