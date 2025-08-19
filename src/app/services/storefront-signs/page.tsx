@@ -45,14 +45,14 @@ export default function StorefrontSignsPage() {
 
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
           {galleryImages.map((image, index) => (
-            <div key={index} className="overflow-hidden rounded-lg shadow-lg">
+            <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image
                 src={image.src}
                 alt={image.alt}
                 data-ai-hint={image.hint}
                 width={600}
                 height={400}
-                className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
               />
             </div>
           ))}
