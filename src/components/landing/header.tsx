@@ -45,11 +45,13 @@ export default function Header() {
 
   useEffect(() => {
     const activeLink = linksRef.current[activeSection];
-    if (activeLink) {
-      setUnderlineStyle({
-        left: activeLink.offsetLeft,
-        width: activeLink.offsetWidth,
-      });
+    if (activeLink && navRef.current) {
+        const navRect = navRef.current.getBoundingClientRect();
+        const linkRect = activeLink.getBoundingClientRect();
+        setUnderlineStyle({
+            left: linkRect.left - navRect.left,
+            width: linkRect.width,
+        });
     }
   }, [activeSection]);
 
@@ -86,7 +88,7 @@ export default function Header() {
             <NavLink key={link.href} {...link} />
           ))}
           <div
-            className="absolute bottom-0 h-[2px] bg-primary transition-all duration-300"
+            className="absolute bottom-0 h-[1px] bg-primary transition-all duration-300 ease-in-out"
             style={{ left: underlineStyle.left, width: underlineStyle.width }}
           />
         </nav>
@@ -110,7 +112,7 @@ export default function Header() {
                     >
                         {link.label}
                         {activeSection === link.id && (
-                            <span className="absolute bottom-0 left-0 h-[2px] w-full bg-primary transition-all"></span>
+                            <span className="absolute bottom-0 left-0 h-[1px] w-full bg-primary transition-all"></span>
                         )}
                     </a>
                 ))}
