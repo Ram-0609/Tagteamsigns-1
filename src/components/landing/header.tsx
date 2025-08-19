@@ -13,7 +13,7 @@ const navLinks = [
   { href: "#contact", label: "Contact", id: "contact" },
 ];
 
-const UNDERLINE_WIDTH = 24; // Fixed width for the underline in pixels
+const UNDERLINE_WIDTH = 24; 
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
@@ -65,7 +65,7 @@ export default function Header() {
       data-id={id}
       onClick={() => setIsSheetOpen(false)}
       className={`relative z-10 px-3 py-2 font-headline text-sm font-extrabold uppercase tracking-tight transition-colors hover:text-primary ${
-        activeSection === id ? "text-primary" : "text-foreground"
+        activeSection === id ? "text-primary" : "text-muted-foreground"
       }`}
     >
       {label}
@@ -90,7 +90,7 @@ export default function Header() {
             <NavLink key={link.href} {...link} />
           ))}
           <div
-            className="absolute bottom-0 h-[2px] bg-primary transition-all duration-300 ease-in-out"
+            className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-in-out"
             style={{ left: underlineStyle.left, width: underlineStyle.width }}
           />
         </nav>
@@ -109,7 +109,7 @@ export default function Header() {
                         href={link.href}
                         onClick={() => setIsSheetOpen(false)}
                         className={`relative py-2 font-headline font-extrabold uppercase tracking-tight transition-colors hover:text-primary ${
-                            activeSection === link.id ? "text-primary" : "text-foreground"
+                            activeSection === link.id ? "text-primary" : "text-muted-foreground"
                         }`}
                     >
                         {link.label}
