@@ -88,7 +88,7 @@ export default function Header() {
             <NavLink key={link.href} {...link} />
           ))}
           <div
-            className="absolute bottom-0 h-1 bg-primary transition-all duration-300 ease-in-out"
+            className="absolute bottom-0 h-[2px] bg-primary transition-all duration-300 ease-in-out"
             style={{ left: underlineStyle.left, width: underlineStyle.width }}
           />
         </nav>
