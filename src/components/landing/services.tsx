@@ -13,7 +13,8 @@ export default function Services() {
       <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
         <div className="mb-4 h-1 w-16 bg-primary"></div>
         <h2 className="mb-8 font-headline text-3xl font-bold uppercase tracking-tight md:mb-12 md:text-4xl">
-          Our Services
+          <div>Our</div>
+          <div>Services</div>
         </h2>
         <div className="grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
