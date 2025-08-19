@@ -23,7 +23,7 @@ export default function About() {
             <p>
               We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
             </p>
-            <ul className="list-disc list-inside space-y-1 text-left">
+            <ul className="list-disc list-inside space-y-1 text-left text-primary">
               <li>Pan Channel Letters</li>
               <li>Reversed Pan Channel Letters</li>
               <li>LED Illumination</li>
