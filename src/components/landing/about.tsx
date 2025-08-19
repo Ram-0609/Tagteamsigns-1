@@ -23,16 +23,16 @@ export default function About() {
                   <p className="text-white">
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
-                  <ul className="list-disc list-inside space-y-1 text-white">
-                    <li>Pan Channel Letters</li>
-                    <li>Reversed Pan Channel Letters</li>
-                    <li>LED Illumination</li>
-                    <li>Monument & Pole Signs</li>
-                    <li>Sign Cabinets</li>
-                    <li>Sign Service and Repair</li>
-                    <li>National Accounts</li>
-                    <li>Permit Processing</li>
-                    <li>Licensed, Bonded and Insured</li>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li className="text-primary">Pan Channel Letters</li>
+                    <li className="text-primary">Reversed Pan Channel Letters</li>
+                    <li className="text-primary">LED Illumination</li>
+                    <li className="text-primary">Monument & Pole Signs</li>
+                    <li className="text-primary">Sign Cabinets</li>
+                    <li className="text-primary">Sign Service and Repair</li>
+                    <li className="text-primary">National Accounts</li>
+                    <li className="text-primary">Permit Processing</li>
+                    <li className="text-primary">Licensed, Bonded and Insured</li>
                   </ul>
                   <p className="text-white">
                     Give us a call today for a Free Estimate!
