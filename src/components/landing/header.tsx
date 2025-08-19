@@ -13,6 +13,8 @@ const navLinks = [
   { href: "#contact", label: "Contact", id: "contact" },
 ];
 
+const UNDERLINE_WIDTH = 24; // Fixed width for the underline in pixels
+
 export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -46,9 +48,11 @@ export default function Header() {
   useEffect(() => {
     const activeLink = linksRef.current[activeSection];
     if (activeLink) {
+        const linkWidth = activeLink.offsetWidth;
+        const left = activeLink.offsetLeft + (linkWidth - UNDERLINE_WIDTH) / 2;
         setUnderlineStyle({
-            left: activeLink.offsetLeft,
-            width: activeLink.offsetWidth,
+            left: left,
+            width: UNDERLINE_WIDTH,
         });
     }
   }, [activeSection]);
@@ -86,7 +90,7 @@ export default function Header() {
             <NavLink key={link.href} {...link} />
           ))}
           <div
-            className="absolute bottom-0 h-[2px] bg-primary transition-all duration-300 ease-in-out"
+            className="absolute bottom-0 h-1 bg-primary transition-all duration-300 ease-in-out"
             style={{ left: underlineStyle.left, width: underlineStyle.width }}
           />
         </nav>
@@ -110,7 +114,7 @@ export default function Header() {
                     >
                         {link.label}
                         {activeSection === link.id && (
-                            <span className="absolute bottom-0 left-0 h-1 w-full bg-primary transition-all"></span>
+                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-6 bg-primary transition-all"></span>
                         )}
                     </a>
                 ))}
