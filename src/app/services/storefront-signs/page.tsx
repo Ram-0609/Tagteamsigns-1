@@ -7,12 +7,12 @@ import Image from 'next/image';
 
 const galleryImages = [
   {
-    src: 'https://i.postimg.cc/13Yx4m4v/signage-mockup-inspiration-53876-95932.jpg',
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPdw9zxF16RhMSUreeDVNi-Q6evKLz_7dz0g&s',
     alt: 'Illuminated channel letters for a modern storefront',
     hint: 'storefront sign',
   },
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiCkwY6maJ1dtRuUWINyVjPKkVsPLvwBTkRg&s',
     alt: 'Awnings with branded graphics for a restaurant',
     hint: 'storefront sign',
   },
