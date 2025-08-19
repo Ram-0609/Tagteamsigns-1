@@ -13,7 +13,7 @@ export default function About() {
       />
       <div className="relative flex justify-center py-10 md:py-16">
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-            <div className="max-w-2xl rounded-lg bg-background/90 p-8 shadow-2xl md:p-12">
+            <div className="max-w-2xl rounded-lg bg-background p-8 shadow-2xl md:p-12">
                 <div className="mb-4 h-1 w-16 bg-primary"></div>
                 <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-foreground md:text-4xl">
                 Who We Are
