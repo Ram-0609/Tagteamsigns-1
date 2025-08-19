@@ -18,6 +18,7 @@ export default function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const navRef = useRef<HTMLDivElement>(null);
+  const linksRef = useRef<Record<string, HTMLAnchorElement | null>>({});
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,14 +44,12 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (navRef.current) {
-      const activeLink = navRef.current.querySelector<HTMLAnchorElement>(`[data-id="${activeSection}"]`);
-      if (activeLink) {
-        setUnderlineStyle({
-          left: activeLink.offsetLeft,
-          width: activeLink.offsetWidth,
-        });
-      }
+    const activeLink = linksRef.current[activeSection];
+    if (activeLink) {
+      setUnderlineStyle({
+        left: activeLink.offsetLeft,
+        width: activeLink.offsetWidth,
+      });
     }
   }, [activeSection]);
 
@@ -58,9 +57,10 @@ export default function Header() {
   const NavLink = ({ href, label, id }: { href: string; label: string; id: string }) => (
     <a
       href={href}
+      ref={(el) => { linksRef.current[id] = el; }}
       data-id={id}
       onClick={() => setIsSheetOpen(false)}
-      className={`relative z-10 px-1 py-2 font-medium uppercase tracking-wider transition-colors hover:text-primary ${
+      className={`relative z-10 px-3 py-2 font-medium uppercase tracking-wider transition-colors hover:text-primary ${
         activeSection === id ? "text-primary" : "text-foreground"
       }`}
     >
@@ -81,7 +81,7 @@ export default function Header() {
             </span>
           </div>
         </a>
-        <nav ref={navRef} className="relative hidden items-center space-x-6 md:flex">
+        <nav ref={navRef} className="relative hidden items-center space-x-4 md:flex">
           {navLinks.map((link) => (
             <NavLink key={link.href} {...link} />
           ))}
