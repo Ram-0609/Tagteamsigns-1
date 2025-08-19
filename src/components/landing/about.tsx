@@ -4,7 +4,7 @@ export default function About() {
     <section 
       id="about" 
       className="relative w-full py-10 md:py-16 bg-cover bg-center bg-no-repeat" 
-      style={{backgroundImage: "url('https://static.wixstatic.com/media/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_90/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg')"}}
+      style={{backgroundImage: "url('https://static.wixstatic.com/media/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg/v1/fill/w_1920,h_1080,al_c,q_95/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg')"}}
       aria-labelledby="about-heading"
     >
       <div className="absolute inset-0 bg-black/60"></div>
@@ -16,8 +16,8 @@ export default function About() {
                   <div>Who</div>
                   <div>We Are</div>
                 </h2>
-                <div className="space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-                  <p className="text-white">
+                <div className="space-y-4 text-base leading-relaxed text-white md:text-lg">
+                  <p>
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
                   <ul className="list-disc list-inside space-y-1 text-left">
@@ -31,7 +31,7 @@ export default function About() {
                     <li className="text-white">Permit Processing</li>
                     <li className="text-white">Licensed, Bonded and Insured</li>
                   </ul>
-                  <p className="text-white">
+                  <p>
                     Give us a call today for a Free Estimate!
                   </p>
                 </div>
