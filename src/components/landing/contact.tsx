@@ -57,7 +57,7 @@ export default function Contact() {
             Get In Touch
           </h2>
         </div>
-        <div className="mx-auto max-w-2xl">
+        <div className="mx-auto max-w-2xl rounded-lg border bg-card p-6 shadow-sm">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
