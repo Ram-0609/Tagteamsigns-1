@@ -12,7 +12,7 @@ export default function Services() {
     <section id="services" className="w-full bg-secondary py-32 text-secondary-foreground md:py-48">
       <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
         <div className="mb-4 h-1 w-16 bg-primary"></div>
-        <h2 className="mb-8 font-headline text-5xl font-bold uppercase tracking-tight md:mb-12 md:text-6xl">
+        <h2 className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
           <div>Our</div>
           <div>Services</div>
         </h2>
