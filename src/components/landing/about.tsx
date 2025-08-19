@@ -3,7 +3,7 @@ export default function About() {
   return (
     <section 
       id="about" 
-      className="relative w-full py-20 text-white md:py-28"
+      className="relative w-full py-20 text-black md:py-28"
       aria-labelledby="about-heading"
     >
       <div 
@@ -11,7 +11,6 @@ export default function About() {
         style={{ backgroundImage: "url('https://static.wixstatic.com/media/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg/v1/fill/w_1057,h_499,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/282ef0_9b21842360a9440ebf54c7f823266517~mv2.jpg')" }}
         data-ai-hint="office background"
       >
-        <div className="absolute inset-0 bg-black/60"></div>
       </div>
       <div className="container relative mx-auto max-w-[1200px] px-6 md:px-12">
         <div className="max-w-2xl text-left">
