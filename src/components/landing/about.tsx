@@ -20,7 +20,7 @@ export default function About() {
                 Who We Are
                 </h2>
                 <div className="space-y-4 text-base leading-relaxed text-gray-200 md:text-lg">
-                  <p className="text-black">
+                  <p className="text-white">
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
                   <ul className="list-disc list-inside space-y-1">
