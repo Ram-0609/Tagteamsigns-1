@@ -18,9 +18,25 @@ export default function About() {
                 <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-foreground md:text-4xl">
                 Who We Are
                 </h2>
-                <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-                We are TAGTEAMSIGNS, a creative company that helps businesses make strong first impressions with custom signs. Our team specializes in designing, building, and installing high-quality signs that reflect your brand identity. We work with storefronts, commercial buildings, and monuments to create professional signage that attracts attention and builds trust. Our goal is to deliver signs that are both beautiful and durable, making your business stand out in every way. With years of experience and a passion for design, we handle every step from idea to installation, ensuring our clients get the best results.
-                </p>
+                <div className="space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                  <p>
+                    We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
+                  </p>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Pan Channel Letters</li>
+                    <li>Reversed Pan Channel Letters</li>
+                    <li>LED Illumination</li>
+                    <li>Monument & Pole Signs</li>
+                    <li>Sign Cabinets</li>
+                    <li>Sign Service and Repair</li>
+                    <li>National Accounts</li>
+                    <li>Permit Processing</li>
+                    <li>Licensed, Bonded and Insured</li>
+                  </ul>
+                  <p>
+                    Give us a call today for a Free Estimate!
+                  </p>
+                </div>
             </div>
         </div>
       </div>
