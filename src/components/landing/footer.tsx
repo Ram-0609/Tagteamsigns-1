@@ -2,7 +2,7 @@ import { Facebook, Instagram, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-secondary text-secondary-foreground/70">
+    <footer className="w-full bg-secondary text-secondary-foreground">
       <div className="container mx-auto flex max-w-[1200px] flex-col items-center justify-center gap-4 px-6 py-6 text-sm md:px-12">
         <div className="flex items-center gap-4">
           <a href="#" aria-label="Facebook" className="transition-colors hover:text-primary">
