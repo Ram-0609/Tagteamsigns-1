@@ -4,10 +4,11 @@ export default function About() {
     <section id="about" className="w-full bg-background py-10 md:py-16" aria-labelledby="about-heading">
       <div className="flex justify-center py-10 md:py-16">
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-            <div className="mx-auto max-w-2xl p-8 md:p-12 text-center">
+            <div className="mx-auto max-w-2xl p-8 text-center md:p-12">
                 <div className="mb-4 h-1 w-16 bg-primary mx-auto"></div>
                 <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-foreground md:text-4xl">
-                  Who We Are
+                  <div>Who</div>
+                  <div>We Are</div>
                 </h2>
                 <div className="space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
                   <p>
@@ -24,7 +25,7 @@ export default function About() {
                     <li className="text-primary">Permit Processing</li>
                     <li className="text-primary">Licensed, Bonded and Insured</li>
                   </ul>
-                  <p>
+                  <p className="text-foreground">
                     Give us a call today for a Free Estimate!
                   </p>
                 </div>
