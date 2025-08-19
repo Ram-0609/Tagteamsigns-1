@@ -52,9 +52,14 @@ export default function Contact() {
   return (
     <section id="contact" className="w-full bg-background py-10 md:py-16">
       <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-        <h2 className="mb-8 text-center font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
-          Get In Touch
-        </h2>
+        <div className="mb-8 items-end justify-between text-center md:flex md:text-left">
+          <h2 className="font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
+            Get In Touch
+          </h2>
+          <p className="mt-2 text-lg text-muted-foreground md:mt-0">
+            We can&apos;t wait to hear from you
+          </p>
+        </div>
         <div className="mx-auto max-w-2xl">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
