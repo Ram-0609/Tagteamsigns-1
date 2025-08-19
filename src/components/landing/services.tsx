@@ -18,7 +18,7 @@ const services = [
   },
   {
     name: "Service & Permitting",
-    icon: "https://static.wixstatic.com/media/282ef0_d756e3a6c4b2484f937e1939b1399859~mv2.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Service.png",
+    icon: "https://static.wixstatic.com/media/282ef0_6675323af6bb49d78cbdca058018d65e~mv2.png/v1/fill/w_34,h_34,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Service.png",
     hint: "service permitting icon"
   },
 ];
