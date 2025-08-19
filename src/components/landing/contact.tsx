@@ -52,7 +52,7 @@ export default function Contact() {
   return (
     <section id="contact" className="w-full bg-background py-10 md:py-16">
       <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-        <div className="mb-8 items-end justify-between text-center md:flex md:text-left">
+        <div className="mb-8 text-center">
           <h2 className="font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
             Get In Touch
           </h2>
