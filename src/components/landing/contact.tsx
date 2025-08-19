@@ -56,9 +56,6 @@ export default function Contact() {
           <h2 className="font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
             Get In Touch
           </h2>
-          <p className="mt-2 text-lg text-muted-foreground md:mt-0">
-            We can&apos;t wait to hear from you
-          </p>
         </div>
         <div className="mx-auto max-w-2xl">
           <Form {...form}>
