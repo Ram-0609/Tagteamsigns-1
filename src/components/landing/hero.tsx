@@ -13,7 +13,7 @@ export default function Hero() {
             id="hero-heading"
             className="font-headline font-black uppercase leading-none tracking-tighter text-[clamp(4rem,10vw,5.75rem)]"
           >
-            <div>SIGNS</div>
+            <div className="text-white">SIGNS</div>
             <div>DESIGN</div>
             <div>BUILD</div>
             <div>INSTALL</div>
