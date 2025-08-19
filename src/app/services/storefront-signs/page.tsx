@@ -27,25 +27,27 @@ export default function StorefrontSignsPage() {
   return (
     <div className="flex w-full flex-col">
       <Header />
-      <main className="container mx-auto max-w-[1200px] px-6 py-12 md:px-12">
-        <Link href="/#services">
-          <Button variant="ghost" className="mb-8">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Services
-          </Button>
-        </Link>
-        <div className="prose max-w-none">
-          <h1 className="mb-8 font-headline text-5xl font-bold uppercase tracking-tight md:text-7xl">
-            Storefront Signs
-          </h1>
-          <p className="text-lg">
-            Make a lasting first impression with a high-quality storefront sign. We design, build, and install a wide variety of signs to match your brand and attract customers. From classic designs to modern illuminated displays, we have the solution for you.
-          </p>
+      <main>
+        <div className="container mx-auto max-w-[1200px] px-6 py-12 md:px-12">
+          <Link href="/#services">
+            <Button variant="ghost" className="mb-8">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Services
+            </Button>
+          </Link>
+          <div className="prose max-w-none">
+            <h1 className="mb-8 font-headline text-5xl font-bold uppercase tracking-tight md:text-7xl">
+              Storefront Signs
+            </h1>
+            <p className="text-lg">
+              Make a lasting first impression with a high-quality storefront sign. We design, build, and install a wide variety of signs to match your brand and attract customers. From classic designs to modern illuminated displays, we have the solution for you.
+            </p>
+          </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3">
           {galleryImages.map((image, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
+            <div key={index} className="group relative overflow-hidden">
               <Image
                 src={image.src}
                 alt={image.alt}
