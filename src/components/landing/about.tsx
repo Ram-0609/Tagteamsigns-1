@@ -8,11 +8,11 @@ export default function About() {
       aria-labelledby="about-heading"
     >
       <div className="absolute inset-0 bg-black/60"></div>
-      <div className="relative flex justify-center py-10 md:py-16">
+      <div className="relative flex items-center py-10 md:py-16">
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-            <div className="mx-auto max-w-2xl p-8 text-center md:p-12">
-                <div className="mb-4 h-1 w-16 bg-primary mx-auto"></div>
-                <h2 id="about-heading" className="mb-4 font-headline text-3xl font-bold uppercase tracking-tight text-white md:text-4xl">
+            <div className="max-w-2xl text-left">
+                <div className="mb-4 h-1 w-16 bg-primary"></div>
+                <h2 id="about-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight text-white md:mb-12 md:text-8xl">
                   <div>Who</div>
                   <div>We Are</div>
                 </h2>
@@ -20,7 +20,7 @@ export default function About() {
                   <p className="text-white">
                     We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
                   </p>
-                  <ul className="list-disc list-inside space-y-1 text-left max-w-sm mx-auto">
+                  <ul className="list-disc list-inside space-y-1 text-left">
                     <li className="text-primary">Pan Channel Letters</li>
                     <li className="text-primary">Reversed Pan Channel Letters</li>
                     <li className="text-primary">LED Illumination</li>
