@@ -56,7 +56,7 @@ export default function Contact() {
     <section id="contact" className="w-full bg-background py-10 md:py-16">
       <div
         ref={ref}
-        className={`container mx-auto max-w-[1200px] px-6 scroll-animate md:px-12 ${isOnScreen ? 'scroll-animate-in' : ''}`}
+        className={`container mx-auto max-w-[1200px] px-6 md:px-12 scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}
       >
         <div className="text-center">
           <div className="mb-8 text-center">

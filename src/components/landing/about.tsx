@@ -19,9 +19,9 @@ export default function About() {
       </div>
       <div 
         ref={ref}
-        className={`container relative mx-auto max-w-[1200px] px-6 scroll-animate md:px-12 ${isOnScreen ? 'scroll-animate-in' : ''}`}
+        className="container relative mx-auto max-w-[1200px] px-6 md:px-12"
       >
-        <div className="max-w-2xl text-left">
+        <div className={`max-w-2xl text-left scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
           <div className="mb-4 h-1 w-16 bg-primary"></div>
           <h2 id="about-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
             <div>Who</div>
