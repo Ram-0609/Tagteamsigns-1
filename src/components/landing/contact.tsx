@@ -59,7 +59,7 @@ export default function Contact() {
         className="container mx-auto max-w-[1200px] px-6 md:px-12"
       >
         <div className="text-center">
-          <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
+          <div className={`jump-in-animate ${isOnScreen ? 'jump-in-animate-in' : ''}`}>
             <h2 className="font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
               Get In Touch
             </h2>

@@ -111,12 +111,12 @@ body {
       opacity: 1;
     }
     100% {
-      transform: translate(120px, -180px) scale(1.5) rotate(-35deg);
+      transform: translate(120px, -220px) scale(2) rotate(-45deg);
       opacity: 0;
     }
   }
   .animate-launch {
-    animation: launch 3s ease-out forwards;
+    animation: launch 4s ease-out forwards;
   }
 
   /* General Scroll Animation */
@@ -192,5 +192,28 @@ body {
   .contact-form-animate-in {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  @keyframes jump-in {
+    0% {
+      transform: translateY(40px) scale(0.9);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(-10px) scale(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  .jump-in-animate {
+    opacity: 0;
+  }
+
+  .jump-in-animate-in {
+    animation: jump-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 }
