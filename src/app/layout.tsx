@@ -40,15 +40,26 @@ export default function RootLayout({
     const mouseUp = () => {
       cursor.classList.remove('cursor-active');
     }
+
+    const handleMouseOver = (e: MouseEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
+        cursor.style.display = 'none';
+      } else {
+        cursor.style.display = 'block';
+      }
+    };
     
     window.addEventListener('mousemove', moveCursor);
     window.addEventListener('mousedown', mouseDown);
     window.addEventListener('mouseup', mouseUp);
+    document.addEventListener('mouseover', handleMouseOver);
+
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mousedown', mouseDown);
       window.removeEventListener('mouseup', mouseUp);
+      document.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
   
