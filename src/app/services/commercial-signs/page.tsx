@@ -17,7 +17,7 @@ const galleryImages = [
     hint: 'pylon sign',
   },
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://image.made-in-china.com/202f0j00OMJVWGQFLkYK/Advertising-Lights-Commercial-for-Coffee-Shop-Acrylic-Advertisement-Light-Box-Outdoor-Waterproof-Business-Signs-Lighting-LED-Signs.webp',
     alt: 'Interior lobby sign for a corporate office',
     hint: 'lobby sign',
   },
