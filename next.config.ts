@@ -45,6 +45,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.poyantsigns.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'image.made-in-china.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
