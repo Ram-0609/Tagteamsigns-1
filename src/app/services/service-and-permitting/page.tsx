@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const galleryImages = [
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://media.istockphoto.com/id/1388925360/photo/business-lawyer-notary-stamping-agreement-company-secretary-official-document-validity.jpg?s=612x612&w=0&k=20&c=H6SlpM8XdrjSUp9mUpPnft7_uUAjtH6-aYY1xkHdN-g=',
     alt: 'Sign permitting process documentation',
     hint: 'sign permit',
   },

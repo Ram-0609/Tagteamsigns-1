@@ -69,6 +69,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.smithsteelworks.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.istockphoto.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
