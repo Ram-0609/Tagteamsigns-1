@@ -53,18 +53,18 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="w-full bg-background py-10 md:py-16">
+    <section id="contact" className="w-full bg-background py-10 md:py-16 overflow-hidden">
       <div
         ref={ref}
         className="container mx-auto max-w-[1200px] px-6 md:px-12"
       >
         <div className="text-center">
-          <div className={`mb-8 text-center scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
+          <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
             <h2 className="font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
               Get In Touch
             </h2>
           </div>
-          <div className={`mx-auto max-w-2xl rounded-lg border bg-card p-6 shadow-sm scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>
+          <div className={`contact-form-animate ${isOnScreen ? 'contact-form-animate-in' : ''} mx-auto mt-8 max-w-2xl rounded-lg border bg-card p-6 shadow-sm`} style={{ transitionDelay: '100ms' }}>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField

@@ -14,11 +14,11 @@ const galleryItems = [
 ];
 
 export default function Work() {
-  const [ref, isOnScreen] = useOnScreen({ threshold: 0.2 });
-  const [gridRef, isGridOnScreen] = useOnScreen({ threshold: 0.2 });
+  const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
+  const [gridRef, isGridOnScreen] = useOnScreen({ threshold: 0.1 });
 
   return (
-    <section id="work" className="w-full" aria-labelledby="work-heading">
+    <section id="work" className="w-full overflow-hidden" aria-labelledby="work-heading">
       <div 
         ref={ref}
         className="bg-primary py-10 text-primary-foreground md:py-16"
@@ -41,8 +41,8 @@ export default function Work() {
           {galleryItems.map((item, index) => (
             <Card
               key={index}
-              className={`overflow-hidden shadow-none rounded-none border-0 transition-shadow hover:shadow-2xl aspect-square scroll-animate ${isGridOnScreen ? 'scroll-animate-in' : ''}`}
-              style={{ transitionDelay: `${(index % 3) * 100 + Math.floor(index / 3) * 150}ms`}}
+              className={`work-gallery-item-animate ${isGridOnScreen ? 'work-gallery-item-animate-in' : ''} overflow-hidden shadow-none rounded-none border-0 aspect-square`}
+              style={{ transitionDelay: `${index * 100}ms`}}
             >
               <CardContent className="p-0 h-full">
                 <div className="overflow-hidden h-full">

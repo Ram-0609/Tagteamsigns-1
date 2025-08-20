@@ -32,15 +32,16 @@ const services = [
 ];
 
 export default function Services() {
-  const [ref, isOnScreen] = useOnScreen({ threshold: 0.2 });
+  const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
+  const [titleRef, isTitleOnScreen] = useOnScreen({ threshold: 0.5 });
 
   return (
-    <section id="services" className="w-full bg-secondary py-32 text-secondary-foreground md:py-48">
+    <section id="services" className="w-full bg-secondary py-32 text-secondary-foreground md:py-48 overflow-hidden">
       <div
         ref={ref}
         className="container mx-auto max-w-[1200px] px-6 md:px-12"
       >
-        <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
+        <div ref={titleRef} className={`scroll-animate ${isTitleOnScreen ? 'scroll-animate-in' : ''}`}>
           <div className="mb-4 h-1 w-16 bg-primary"></div>
           <h2 className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
             <div>Our</div>
@@ -52,10 +53,10 @@ export default function Services() {
             <Link 
               key={service.name} 
               href={service.href}
-              className={`group scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}
+              className={`group service-card-animate ${isOnScreen ? 'service-card-animate-in' : ''}`}
               style={{ transitionDelay: `${100 + index * 100}ms`}}
             >
-              <div className="flex items-center gap-4 transition-colors group-hover:text-primary">
+              <div className="flex items-center gap-4 transition-transform duration-300 group-hover:-translate-y-1">
                 <Image 
                   src={service.icon} 
                   alt={`${service.name} icon`}
@@ -64,7 +65,7 @@ export default function Services() {
                   height={34}
                   className="h-8 w-8 flex-shrink-0"
                 />
-                <span className="text-lg font-semibold">{service.name}</span>
+                <span className="text-lg font-semibold transition-colors group-hover:text-primary">{service.name}</span>
               </div>
             </Link>
           ))}

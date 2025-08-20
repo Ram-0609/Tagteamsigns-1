@@ -91,6 +91,16 @@ body {
 }
 
 @layer utilities {
+  @keyframes crack {
+    0% { transform: scale(1); }
+    20% { transform: scale(0.95) rotate(1deg); }
+    40% { transform: scale(1.05) rotate(-1deg); }
+    60% { transform: scale(1) rotate(0); }
+    100% { transform: scale(1); }
+  }
+  .animate-crack {
+    animation: crack 0.5s ease-in-out;
+  }
   @keyframes launch {
     0% {
       transform: translate(0, 0) scale(0.5) rotate(-45deg);
@@ -105,18 +115,82 @@ body {
       opacity: 0;
     }
   }
-
   .animate-launch {
     animation: launch 1.5s ease-out forwards;
   }
+
+  /* General Scroll Animation */
   .scroll-animate {
     opacity: 0;
-    transform: translateY(50px) scale(0.9);
+    transform: translateY(30px) scale(0.95);
     transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
-
   .scroll-animate-in {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+
+  /* Hero Section Animation */
+  .hero-animate {
+    opacity: 0;
+    letter-spacing: -0.1em;
+    transform: scale(1.2);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), letter-spacing 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .hero-animate-in {
+    opacity: 1;
+    letter-spacing: inherit;
+    transform: scale(1);
+  }
+
+  /* Services Section Animation */
+  .service-card-animate {
+    opacity: 0;
+    transform: translateY(50px) rotateY(-15deg) scale(0.9);
+    transform-origin: left center;
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .service-card-animate-in {
+    opacity: 1;
+    transform: translateY(0) rotateY(0) scale(1);
+  }
+
+  /* About Us Section Animation */
+  .curtain-animate {
+    opacity: 0;
+    clip-path: inset(0 50% 0 50%);
+    transition: opacity 0.8s ease-out, clip-path 0.8s ease-out;
+  }
+  .curtain-animate-in {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* Work Section Animation */
+  .work-gallery-item-animate {
+    opacity: 0;
+    transform: scale(0.9) rotate(-3deg);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .work-gallery-item-animate:nth-child(2) { transform: scale(0.9) rotate(2deg); }
+  .work-gallery-item-animate:nth-child(3) { transform: scale(0.9) rotate(-2deg); }
+  .work-gallery-item-animate:nth-child(4) { transform: scale(0.9) rotate(3deg); }
+  .work-gallery-item-animate:nth-child(5) { transform: scale(0.9) rotate(-1deg); }
+  .work-gallery-item-animate:nth-child(6) { transform: scale(0.9) rotate(1deg); }
+  
+  .work-gallery-item-animate-in {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+
+  /* Contact Section Animation */
+  .contact-form-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .contact-form-animate-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

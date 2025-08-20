@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="w-full bg-primary text-black"
+      className="w-full bg-primary text-black overflow-hidden"
       aria-labelledby="hero-heading"
     >
       <div className="container mx-auto flex min-h-[70vh] max-w-[1200px] items-center justify-end px-6 md:px-12">
@@ -20,10 +20,10 @@ export default function Hero() {
             id="hero-heading"
             className={`font-headline font-black uppercase leading-none tracking-tighter text-[clamp(4rem,10vw,5.75rem)]`}
           >
-            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''} text-white`} style={{ transitionDelay: '0ms' }}>SIGNS</div>
-            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>DESIGN</div>
-            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '200ms' }}>BUILD</div>
-            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '300ms' }}>INSTALL</div>
+            <div className={`hero-animate ${isOnScreen ? 'hero-animate-in' : ''} text-white`} style={{ transitionDelay: '0ms' }}>SIGNS</div>
+            <div className={`hero-animate ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>DESIGN</div>
+            <div className={`hero-animate ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '200ms' }}>BUILD</div>
+            <div className={`hero-animate ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '300ms' }}>INSTALL</div>
           </h1>
         </div>
       </div>

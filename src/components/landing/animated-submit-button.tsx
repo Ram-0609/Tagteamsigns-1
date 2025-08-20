@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Rocket } from 'lucide-react';
 
 export function AnimatedSubmitButton() {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -20,7 +21,8 @@ export function AnimatedSubmitButton() {
         type="submit"
         className={cn(
           'relative flex items-center justify-center w-full md:w-auto h-11 px-8 rounded-md text-white font-medium overflow-hidden transition-all duration-300',
-          'bg-[#E21F26] hover:bg-red-700 active:scale-95'
+          'bg-primary hover:bg-primary/90 active:scale-95',
+          isAnimating && 'animate-crack'
         )}
         onClick={handleClick}
         disabled={isAnimating}
@@ -33,16 +35,14 @@ export function AnimatedSubmitButton() {
         >
           Submit
         </span>
-        <span
+        <Rocket
           aria-hidden
           className={cn(
-            'absolute text-2xl transition-all duration-300',
+            'absolute h-6 w-6 transition-all duration-300',
             'rocket',
             isAnimating ? 'animate-launch' : 'opacity-0'
           )}
-        >
-          🚀
-        </span>
+        />
       </button>
     </div>
   );
