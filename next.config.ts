@@ -57,6 +57,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.identitygroup.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tuppsigns.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

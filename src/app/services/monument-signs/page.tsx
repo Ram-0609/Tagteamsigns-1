@@ -12,7 +12,7 @@ const galleryImages = [
     hint: 'monument sign',
   },
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://tuppsigns.com/wp-content/uploads/2021/09/How-to-Keep-Your-Monument-Sign-Looking-Brand-New.png',
     alt: 'Brick monument sign with dimensional letters',
     hint: 'monument sign brick',
   },
