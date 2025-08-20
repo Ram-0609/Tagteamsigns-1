@@ -116,7 +116,7 @@ body {
     }
   }
   .animate-launch {
-    animation: launch 2s ease-out forwards;
+    animation: launch 3s ease-out forwards;
   }
 
   /* General Scroll Animation */
