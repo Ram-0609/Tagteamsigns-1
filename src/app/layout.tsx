@@ -28,7 +28,7 @@ export default function RootLayout({
       document.body.appendChild(ripple);
       setTimeout(() => {
         ripple.remove();
-      }, 750);
+      }, 600);
     };
 
     const mouseDown = (e: MouseEvent) => {
