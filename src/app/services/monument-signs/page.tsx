@@ -17,7 +17,7 @@ const galleryImages = [
     hint: 'monument sign brick',
   },
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://www.smithsteelworks.com/wp-content/uploads/2022/07/Welcome-To-Monument-Signs.jpg',
     alt: 'Modern monument sign with LED lighting',
     hint: 'monument sign modern',
   },

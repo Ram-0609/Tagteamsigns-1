@@ -63,6 +63,12 @@ const nextConfig: NextConfig = {
         hostname: 'tuppsigns.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.smithsteelworks.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
