@@ -13,27 +13,31 @@ export default function RootLayout({
 }>) {
   useEffect(() => {
     const cursor = document.getElementById('custom-cursor');
-    const trail = document.getElementById('cursor-trail');
-    if (!cursor || !trail) return;
+    if (!cursor) return;
 
     const moveCursor = (e: MouseEvent) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
-      
-      setTimeout(() => {
-        trail.style.left = `${e.clientX}px`;
-        trail.style.top = `${e.clientY}px`;
-      }, 80);
     };
 
-    const mouseDown = () => {
+    const createRipple = (e: MouseEvent) => {
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple';
+      ripple.style.left = `${e.clientX}px`;
+      ripple.style.top = `${e.clientY}px`;
+      document.body.appendChild(ripple);
+      setTimeout(() => {
+        ripple.remove();
+      }, 750);
+    };
+
+    const mouseDown = (e: MouseEvent) => {
       cursor.classList.add('cursor-active');
-      trail.classList.add('cursor-active');
+      createRipple(e);
     }
 
     const mouseUp = () => {
       cursor.classList.remove('cursor-active');
-      trail.classList.remove('cursor-active');
     }
     
     window.addEventListener('mousemove', moveCursor);
@@ -55,8 +59,11 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@800;900&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <div id="custom-cursor"></div>
-        <div id="cursor-trail"></div>
+        <div id="custom-cursor">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.2,3.46,19.34,12,4.2,20.54V12Z" />
+          </svg>
+        </div>
         {children}
         <Toaster />
       </body>
