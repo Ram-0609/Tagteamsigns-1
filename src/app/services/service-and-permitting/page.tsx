@@ -12,7 +12,7 @@ const galleryImages = [
     hint: 'sign permit',
   },
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://media.istockphoto.com/id/1445807259/photo/business-people-doing-calculations-analyze-the-work-at-the-meeting.jpg?s=612x612&w=0&k=20&c=I1iGLJ15sDfGI13KpPV_Vmpyu9fRYcfdY7187E2gRhc=',
     alt: 'Team servicing an outdoor sign',
     hint: 'sign service',
   },
