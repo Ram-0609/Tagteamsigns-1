@@ -1,5 +1,8 @@
+"use client";
+
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
+import { useOnScreen } from '@/hooks/use-on-screen';
 
 const galleryItems = [
   { src: "https://static.wixstatic.com/media/282ef0_e357c3f3d41b4f43ae84bb7c5677cd97~mv2.jpg/v1/fill/w_600,h_600,fp_0.51_0.51,q_90/282ef0_e357c3f3d41b4f43ae84bb7c5677cd97~mv2.jpg", alt: "Custom storefront sign", hint: "storefront sign" },
@@ -11,10 +14,12 @@ const galleryItems = [
 ];
 
 export default function Work() {
+  const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
+
   return (
     <section id="work" className="w-full" aria-labelledby="work-heading">
       <div className="bg-primary py-10 text-primary-foreground md:py-16">
-        <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
+        <div ref={ref} className={`container mx-auto max-w-[1200px] px-6 md:px-12 scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
             <div className="mb-4 h-1 w-16 bg-secondary"></div>
             <h2 id="work-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
                 <div>Our</div>

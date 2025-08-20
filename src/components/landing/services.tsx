@@ -1,5 +1,8 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { useOnScreen } from '@/hooks/use-on-screen';
 
 const services = [
   {
@@ -29,14 +32,18 @@ const services = [
 ];
 
 export default function Services() {
+  const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
+
   return (
     <section id="services" className="w-full bg-secondary py-32 text-secondary-foreground md:py-48">
       <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-        <div className="mb-4 h-1 w-16 bg-primary"></div>
-        <h2 className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
-          <div>Our</div>
-          <div>Services</div>
-        </h2>
+        <div ref={ref} className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
+          <div className="mb-4 h-1 w-16 bg-primary"></div>
+          <h2 className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
+            <div>Our</div>
+            <div>Services</div>
+          </h2>
+        </div>
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <Link key={service.name} href={service.href} className="group">

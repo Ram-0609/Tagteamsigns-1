@@ -1,6 +1,10 @@
-import { Card } from "@/components/ui/card";
+"use client";
+
+import { useOnScreen } from "@/hooks/use-on-screen";
 
 export default function Hero() {
+  const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
+
   return (
     <section
       id="home"
@@ -11,7 +15,8 @@ export default function Hero() {
         <div className="text-right">
           <h1
             id="hero-heading"
-            className="font-headline font-black uppercase leading-none tracking-tighter text-[clamp(4rem,10vw,5.75rem)]"
+            ref={ref}
+            className={`font-headline font-black uppercase leading-none tracking-tighter text-[clamp(4rem,10vw,5.75rem)] scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}
           >
             <div className="text-white">SIGNS</div>
             <div>DESIGN</div>
