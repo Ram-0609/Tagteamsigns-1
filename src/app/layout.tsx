@@ -13,19 +13,27 @@ export default function RootLayout({
 }>) {
   useEffect(() => {
     const cursor = document.getElementById('custom-cursor');
-    if (!cursor) return;
+    const trail = document.getElementById('cursor-trail');
+    if (!cursor || !trail) return;
 
     const moveCursor = (e: MouseEvent) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
+      
+      setTimeout(() => {
+        trail.style.left = `${e.clientX}px`;
+        trail.style.top = `${e.clientY}px`;
+      }, 80);
     };
 
     const mouseDown = () => {
       cursor.classList.add('cursor-active');
+      trail.classList.add('cursor-active');
     }
 
     const mouseUp = () => {
       cursor.classList.remove('cursor-active');
+      trail.classList.remove('cursor-active');
     }
     
     window.addEventListener('mousemove', moveCursor);
@@ -48,6 +56,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <div id="custom-cursor"></div>
+        <div id="cursor-trail"></div>
         {children}
         <Toaster />
       </body>
