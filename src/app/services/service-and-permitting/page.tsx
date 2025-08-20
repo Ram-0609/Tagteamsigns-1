@@ -17,7 +17,7 @@ const galleryImages = [
     hint: 'sign service',
   },
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://images.pexels.com/photos/7682340/pexels-photo-7682340.jpeg?cs=srgb&dl=pexels-mikhail-nilov-7682340.jpg&fm=jpg',
     alt: 'Crane installing a large commercial sign',
     hint: 'sign installation',
   },
