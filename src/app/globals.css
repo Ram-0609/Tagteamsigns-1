@@ -18,13 +18,13 @@ body {
 }
 
 #custom-cursor {
-  border: 2px solid hsl(var(--primary));
+  border: 2px solid #000;
   transition: transform 0.2s ease-out, background-color 0.2s, width 0.2s, height 0.2s;
-  box-shadow: 0 0 5px hsl(var(--primary)), 0 0 10px hsl(var(--primary)), 0 0 15px hsl(var(--primary));
+  box-shadow: 0 0 5px #000, 0 0 10px #000, 0 0 15px #000;
 }
 
 #cursor-trail {
-  background-color: hsla(var(--primary), 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: all 0.1s ease-out;
   z-index: 9998;
 }
@@ -34,7 +34,7 @@ body {
 }
 
 #custom-cursor.cursor-active {
-  background-color: hsla(var(--primary), 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 a, button {
