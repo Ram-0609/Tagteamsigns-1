@@ -27,7 +27,7 @@ export default function About() {
         <div className={`max-w-2xl text-left`}>
            <div className={`curtain-animate ${isTextOnScreen ? 'curtain-animate-in' : ''}`}>
             <div className="mb-4 h-1 w-16 bg-primary"></div>
-            <h2 id="about-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight text-secondary-foreground md:mb-12 md:text-8xl">
+            <h2 id="about-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight text-black md:mb-12 md:text-8xl">
               <div>Who</div>
               <div>We Are</div>
             </h2>
