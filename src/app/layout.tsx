@@ -33,12 +33,20 @@ export default function RootLayout({
     };
 
     const mouseDown = (e: MouseEvent) => {
-      cursor.classList.add('cursor-active');
-      createRipple(e);
+      if (e.button === 0) { // Left click
+        cursor.classList.add('cursor-active');
+        createRipple(e);
+      } else if (e.button === 1) { // Middle click (scroll wheel)
+        cursor.style.display = 'none';
+      }
     }
 
-    const mouseUp = () => {
-      cursor.classList.remove('cursor-active');
+    const mouseUp = (e: MouseEvent) => {
+       if (e.button === 0) { // Left click
+        cursor.classList.remove('cursor-active');
+      } else if (e.button === 1) { // Middle click (scroll wheel)
+        cursor.style.display = 'block';
+      }
     }
 
     const handleMouseOver = (e: MouseEvent) => {
