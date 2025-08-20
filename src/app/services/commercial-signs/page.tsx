@@ -12,7 +12,7 @@ const galleryImages = [
     hint: 'commercial sign',
   },
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://www.poyantsigns.com/wp-content/uploads/2017/08/Sonnys-3-1.jpg',
     alt: 'Pylon sign for a shopping center',
     hint: 'pylon sign',
   },

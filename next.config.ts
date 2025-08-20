@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.davessigns.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.poyantsigns.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
