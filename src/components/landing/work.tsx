@@ -20,17 +20,17 @@ export default function Work() {
     <section id="work" className="w-full overflow-hidden" aria-labelledby="work-heading">
       <div 
         ref={ref}
-        className="bg-gray-100 py-10 text-black md:py-16"
+        className="bg-primary py-10 text-primary-foreground md:py-16"
       >
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
             <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
-              <div className="mb-4 h-1 w-16 bg-primary"></div>
+              <div className="mb-4 h-1 w-16 bg-white"></div>
               <h2 id="work-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
                   <div>Our</div>
                   <div>Work</div>
               </h2>
             </div>
-          <p className={`max-w-3xl text-lg text-black/90 scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>
+          <p className={`max-w-3xl text-lg text-primary-foreground/90 scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>
             Discover how TagTeamSigns is your best resource for creative, quality sign solutions. Our highly trained staff is committed to give you exceptional customer service. From start to finish, you'll see how we make the most out of the latest technologies to design, create and install virtually any type of sign. We streamline the sign buying process for you from Concept to Completion.
           </p>
         </div>
