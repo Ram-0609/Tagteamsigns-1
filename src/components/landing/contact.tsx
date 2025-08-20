@@ -54,8 +54,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="w-full bg-background py-10 md:py-16">
-      <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-        <div ref={ref} className={`text-center scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
+      <div
+        ref={ref}
+        className={`container mx-auto max-w-[1200px] px-6 scroll-animate md:px-12 ${isOnScreen ? 'scroll-animate-in' : ''}`}
+      >
+        <div className="text-center">
           <div className="mb-8 text-center">
             <h2 className="font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
               Get In Touch

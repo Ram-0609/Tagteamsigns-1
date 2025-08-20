@@ -15,11 +15,12 @@ const galleryItems = [
 
 export default function Work() {
   const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
+  const [gridRef, isGridOnScreen] = useOnScreen({ threshold: 0.1 });
 
   return (
     <section id="work" className="w-full" aria-labelledby="work-heading">
-      <div className="bg-primary py-10 text-primary-foreground md:py-16">
-        <div ref={ref} className={`container mx-auto max-w-[1200px] px-6 md:px-12 scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
+      <div ref={ref} className={`bg-primary py-10 text-primary-foreground md:py-16 scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
+        <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
             <div className="mb-4 h-1 w-16 bg-secondary"></div>
             <h2 id="work-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
                 <div>Our</div>
@@ -30,10 +31,14 @@ export default function Work() {
           </p>
         </div>
       </div>
-      <div className="bg-background">
+      <div ref={gridRef} className="bg-background">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {galleryItems.map((item, index) => (
-            <Card key={index} className="overflow-hidden shadow-none rounded-none border-0 transition-shadow hover:shadow-2xl aspect-square">
+            <Card
+              key={index}
+              className={`overflow-hidden shadow-none rounded-none border-0 transition-shadow hover:shadow-2xl aspect-square scroll-animate ${isGridOnScreen ? 'scroll-animate-in' : ''}`}
+              style={{ transitionDelay: `${(index % 3) * 100}ms`}}
+            >
               <CardContent className="p-0 h-full">
                 <div className="overflow-hidden h-full">
                   <Image
