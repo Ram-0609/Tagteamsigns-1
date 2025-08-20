@@ -23,12 +23,13 @@ export default function RootLayout({
     const createRipple = (e: MouseEvent) => {
       const ripple = document.createElement('div');
       ripple.className = 'ripple';
+      document.body.appendChild(ripple);
       ripple.style.left = `${e.clientX}px`;
       ripple.style.top = `${e.clientY}px`;
-      document.body.appendChild(ripple);
-      setTimeout(() => {
+      
+      ripple.addEventListener('animationend', () => {
         ripple.remove();
-      }, 600);
+      });
     };
 
     const mouseDown = (e: MouseEvent) => {
