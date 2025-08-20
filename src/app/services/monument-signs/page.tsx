@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const galleryImages = [
   {
-    src: 'https://placehold.co/600x400.png',
+    src: 'https://www.identitygroup.com/wp-content/uploads/2024/09/What-is-a-Monument-Sign-A-Beginners-Guide.png',
     alt: 'Elegant monument sign for a business park',
     hint: 'monument sign',
   },

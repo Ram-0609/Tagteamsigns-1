@@ -51,6 +51,12 @@ const nextConfig: NextConfig = {
         hostname: 'image.made-in-china.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.identitygroup.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
