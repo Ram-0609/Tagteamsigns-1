@@ -14,12 +14,12 @@ const galleryImages = [
   {
     src: 'https://placehold.co/600x400.png',
     alt: 'Pylon sign for a shopping center',
-    hint: 'commercial sign',
+    hint: 'pylon sign',
   },
   {
     src: 'https://placehold.co/600x400.png',
     alt: 'Interior lobby sign for a corporate office',
-    hint: 'commercial sign',
+    hint: 'lobby sign',
   },
 ];
 
