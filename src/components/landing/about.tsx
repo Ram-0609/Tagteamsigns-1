@@ -32,7 +32,7 @@ export default function About() {
               <div>We Are</div>
             </h2>
           </div>
-          <div className="space-y-4 text-base leading-relaxed text-secondary-foreground md:text-lg">
+          <div className="space-y-4 text-base leading-relaxed text-black md:text-lg">
             <p className={`curtain-animate ${isTextOnScreen ? 'curtain-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>
               We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
             </p>
