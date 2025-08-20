@@ -14,22 +14,24 @@ const galleryItems = [
 ];
 
 export default function Work() {
-  const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
-  const [gridRef, isGridOnScreen] = useOnScreen({ threshold: 0.1 });
+  const [ref, isOnScreen] = useOnScreen({ threshold: 0.2 });
+  const [gridRef, isGridOnScreen] = useOnScreen({ threshold: 0.2 });
 
   return (
     <section id="work" className="w-full" aria-labelledby="work-heading">
       <div 
         ref={ref}
-        className={`bg-primary py-10 text-primary-foreground md:py-16 scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}
+        className="bg-primary py-10 text-primary-foreground md:py-16"
       >
         <div className="container mx-auto max-w-[1200px] px-6 md:px-12">
-            <div className="mb-4 h-1 w-16 bg-secondary"></div>
-            <h2 id="work-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
-                <div>Our</div>
-                <div>Work</div>
-            </h2>
-          <p className="max-w-3xl text-lg text-primary-foreground/90">
+            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}>
+              <div className="mb-4 h-1 w-16 bg-secondary"></div>
+              <h2 id="work-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight md:mb-12 md:text-8xl">
+                  <div>Our</div>
+                  <div>Work</div>
+              </h2>
+            </div>
+          <p className={`max-w-3xl text-lg text-primary-foreground/90 scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>
             Discover how TagTeamSigns is your best resource for creative, quality sign solutions. Our highly trained staff is committed to give you exceptional customer service. From start to finish, you'll see how we make the most out of the latest technologies to design, create and install virtually any type of sign. We streamline the sign buying process for you from Concept to Completion.
           </p>
         </div>
@@ -40,7 +42,7 @@ export default function Work() {
             <Card
               key={index}
               className={`overflow-hidden shadow-none rounded-none border-0 transition-shadow hover:shadow-2xl aspect-square scroll-animate ${isGridOnScreen ? 'scroll-animate-in' : ''}`}
-              style={{ transitionDelay: `${(index % 3) * 100}ms`}}
+              style={{ transitionDelay: `${(index % 3) * 100 + Math.floor(index / 3) * 150}ms`}}
             >
               <CardContent className="p-0 h-full">
                 <div className="overflow-hidden h-full">

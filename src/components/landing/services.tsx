@@ -32,7 +32,7 @@ const services = [
 ];
 
 export default function Services() {
-  const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
+  const [ref, isOnScreen] = useOnScreen({ threshold: 0.2 });
 
   return (
     <section id="services" className="w-full bg-secondary py-32 text-secondary-foreground md:py-48">
@@ -53,7 +53,7 @@ export default function Services() {
               key={service.name} 
               href={service.href}
               className={`group scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}
-              style={{ transitionDelay: `${index * 100}ms`}}
+              style={{ transitionDelay: `${100 + index * 100}ms`}}
             >
               <div className="flex items-center gap-4 transition-colors group-hover:text-primary">
                 <Image 

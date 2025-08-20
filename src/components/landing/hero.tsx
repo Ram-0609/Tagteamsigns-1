@@ -3,7 +3,7 @@
 import { useOnScreen } from "@/hooks/use-on-screen";
 
 export default function Hero() {
-  const [ref, isOnScreen] = useOnScreen({ threshold: 0.1 });
+  const [ref, isOnScreen] = useOnScreen({ threshold: 0.3 });
 
   return (
     <section
@@ -14,16 +14,16 @@ export default function Hero() {
       <div className="container mx-auto flex min-h-[70vh] max-w-[1200px] items-center justify-end px-6 md:px-12">
         <div 
           ref={ref}
-          className={`text-right scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`}
+          className="text-right"
         >
           <h1
             id="hero-heading"
             className={`font-headline font-black uppercase leading-none tracking-tighter text-[clamp(4rem,10vw,5.75rem)]`}
           >
-            <div className="text-white">SIGNS</div>
-            <div>DESIGN</div>
-            <div>BUILD</div>
-            <div>INSTALL</div>
+            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''} text-white`} style={{ transitionDelay: '0ms' }}>SIGNS</div>
+            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>DESIGN</div>
+            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '200ms' }}>BUILD</div>
+            <div className={`scroll-animate ${isOnScreen ? 'scroll-animate-in' : ''}`} style={{ transitionDelay: '300ms' }}>INSTALL</div>
           </h1>
         </div>
       </div>
