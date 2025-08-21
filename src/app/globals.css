@@ -11,7 +11,8 @@ body {
   position: fixed;
   width: 24px;
   height: 24px;
-  transform: translate(-50%, -50%);
+  /* Correctly position the cursor's hotspot */
+  transform: translate(0, 0);
   pointer-events: none;
   z-index: 9999;
   transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1);
@@ -25,7 +26,7 @@ body {
 }
 
 #custom-cursor.cursor-active {
-  transform: translate(-50%, -50%) scale(0.9);
+  transform: scale(0.9);
 }
 
 .neon-trail {

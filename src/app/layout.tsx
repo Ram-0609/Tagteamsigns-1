@@ -90,7 +90,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <div id="custom-cursor">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="m3 3 9 18 4-8-8-4Z"/>
+            <path d="M0 0 L16 16 L7 17 L0 10 Z" transform="rotate(0)"/>
           </svg>
         </div>
         {children}
