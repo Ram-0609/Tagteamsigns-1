@@ -28,25 +28,29 @@ body {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-.smoke-puff {
+.neon-trail {
   position: fixed;
-  background: rgba(180, 180, 180, 0.5);
+  width: 8px;
+  height: 8px;
+  background-color: hsl(var(--primary));
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  opacity: 0;
-  filter: blur(5px);
-  animation: smoke-effect 2s ease-out forwards;
+  transform: translate(-50%, -50%);
+  animation: neon-trail-fade 0.5s ease-out forwards;
+  box-shadow: 0 0 5px hsl(var(--primary)),
+              0 0 10px hsl(var(--primary)),
+              0 0 15px hsl(var(--primary));
 }
 
-@keyframes smoke-effect {
+@keyframes neon-trail-fade {
   0% {
     opacity: 1;
-    transform: scale(0.2) translateY(0);
+    transform: translate(-50%, -50%) scale(1);
   }
   100% {
     opacity: 0;
-    transform: scale(var(--scale-end, 1.5)) translateY(-60px);
+    transform: translate(-50%, -50%) scale(0.2);
   }
 }
 

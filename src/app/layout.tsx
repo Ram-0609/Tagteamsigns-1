@@ -15,40 +15,36 @@ export default function RootLayout({
     const cursor = document.getElementById('custom-cursor');
     if (!cursor) return;
 
+    let lastTrailTime = 0;
+    const trailCooldown = 25; // ms
+
+    const createTrail = (x: number, y: number) => {
+      const trail = document.createElement('div');
+      trail.className = 'neon-trail';
+      document.body.appendChild(trail);
+
+      trail.style.left = `${x}px`;
+      trail.style.top = `${y}px`;
+
+      setTimeout(() => {
+        trail.remove();
+      }, 500); 
+    };
+
     const moveCursor = (e: MouseEvent) => {
       cursor.style.left = `${e.clientX}px`;
       cursor.style.top = `${e.clientY}px`;
-    };
 
-    const createSmokePuff = (e: MouseEvent) => {
-      const puffCount = 10;
-      
-      for (let i = 0; i < puffCount; i++) {
-        const puff = document.createElement('div');
-        puff.className = 'smoke-puff';
-        document.body.appendChild(puff);
-        
-        const angle = Math.random() * 2 * Math.PI;
-        const radius = Math.random() * 30;
-        const xOffset = Math.cos(angle) * radius;
-        const yOffset = Math.sin(angle) * radius;
-
-        puff.style.left = `${e.clientX + xOffset}px`;
-        puff.style.top = `${e.clientY + yOffset}px`;
-        puff.style.animationDelay = `${Math.random() * 0.5}s`;
-        puff.style.setProperty('--scale-end', `${(Math.random() * 1.5 + 0.5).toFixed(2)}`);
-
-
-        puff.addEventListener('animationend', () => {
-          puff.remove();
-        });
+      const now = Date.now();
+      if (now - lastTrailTime > trailCooldown) {
+        createTrail(e.clientX, e.clientY);
+        lastTrailTime = now;
       }
     };
 
     const mouseDown = (e: MouseEvent) => {
       if (e.button === 0) { // Left click
         cursor.classList.add('cursor-active');
-        createSmokePuff(e);
       } else if (e.button === 1) { // Middle click (scroll wheel)
         cursor.style.display = 'none';
       }
