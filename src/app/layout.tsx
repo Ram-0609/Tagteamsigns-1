@@ -104,9 +104,10 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <div id="custom-cursor">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19.3,3.7c-0.4-0.4-1-0.4-1.4,0L4,17.6V20h2.4l12.9-12.9C19.7,6.7,19.7,6.1,19.3,5.7L19.3,3.7z M8.5,18H6v-2.5L14.5,7l2.5,2.5L8.5,18z"/>
-          </svg>
+           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#111111">
+              <path d="M4.2,3.4l15.5,15.5c0.4,0.4,0.4,1,0,1.4s-1,0.4-1.4,0L2.8,4.8C2.6,4.6,2.5,4.3,2.5,4.1c0-0.6,0.4-1,1-1c0.2,0,0.5,0.1,0.7,0.3z"/>
+              <path d="M4.2,20.6L19.8,5c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L2.8,19.2c-0.2,0.2-0.3,0.5-0.3,0.7c0,0.6,0.4,1,1,1C3.7,20.8,4,20.7,4.2,20.6z"/>
+           </svg>
         </div>
         {children}
         <Toaster />
