@@ -11,6 +11,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const hole = document.createElement('div');
+      hole.className = 'bullet-hole';
+      hole.style.left = `${e.clientX}px`;
+      hole.style.top = `${e.clientY}px`;
+      hole.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg) scale(${0.8 + Math.random() * 0.4})`;
+      document.body.appendChild(hole);
+
+      setTimeout(() => {
+        hole.classList.add('fade-out');
+        setTimeout(() => {
+          hole.remove();
+        }, 2000);
+      }, 5000);
+    };
+
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
 
   return (
     <html lang="en" className="scroll-smooth">
