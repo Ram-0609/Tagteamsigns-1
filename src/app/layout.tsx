@@ -13,6 +13,21 @@ export default function RootLayout({
 }>) {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
+      // Crack effect
+      const target = e.target as HTMLElement;
+      if (target) {
+        target.classList.add('animate-crack');
+        setTimeout(() => {
+          target.classList.remove('animate-crack');
+        }, 500);
+      }
+
+      // Bullet hole effect
+      const existingHoles = document.querySelectorAll('.bullet-hole');
+      if (existingHoles.length >= 10) {
+        existingHoles[0].remove();
+      }
+
       const hole = document.createElement('div');
       hole.className = 'bullet-hole';
       hole.style.left = `${e.clientX}px`;
