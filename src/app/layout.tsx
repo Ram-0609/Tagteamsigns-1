@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
@@ -15,31 +15,46 @@ export default function RootLayout({
     const cursor = document.getElementById('custom-cursor');
     if (!cursor) return;
 
+    let lastX = 0;
+    let lastY = 0;
     let lastTrailTime = 0;
-    const trailCooldown = 15; // ms
+    const trailCooldown = 10; // ms
 
-    const createTrail = (x: number, y: number) => {
-      const trail = document.createElement('div');
-      trail.className = 'neon-trail';
-      document.body.appendChild(trail);
+    const createTrail = (x: number, y: number, prevX: number, prevY: number) => {
+        const distance = Math.sqrt(Math.pow(x - prevX, 2) + Math.pow(y - prevY, 2));
+        if (distance === 0) return;
 
-      trail.style.left = `${x}px`;
-      trail.style.top = `${y}px`;
+        const angle = Math.atan2(y - prevY, x - prevX) * 180 / Math.PI;
+        
+        const trail = document.createElement('div');
+        trail.className = 'neon-trail';
+        document.body.appendChild(trail);
 
-      setTimeout(() => {
-        trail.remove();
-      }, 800); 
+        trail.style.left = `${prevX}px`;
+        trail.style.top = `${prevY}px`;
+        trail.style.width = `${distance}px`;
+        trail.style.height = '2px';
+        trail.style.transformOrigin = 'left center';
+        trail.style.transform = `rotate(${angle}deg)`;
+
+        setTimeout(() => {
+            trail.remove();
+        }, 500); 
     };
 
     const moveCursor = (e: MouseEvent) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-
       const now = Date.now();
       if (now - lastTrailTime > trailCooldown) {
-        createTrail(e.clientX, e.clientY);
-        lastTrailTime = now;
+          if (lastX !== 0 || lastY !== 0) {
+              createTrail(e.clientX, e.clientY, lastX, lastY);
+          }
+          lastTrailTime = now;
+          lastX = e.clientX;
+          lastY = e.clientY;
       }
+      
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
     };
 
     const mouseDown = (e: MouseEvent) => {

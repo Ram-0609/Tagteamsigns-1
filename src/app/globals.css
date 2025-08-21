@@ -31,27 +31,21 @@ body {
 
 .neon-trail {
   position: fixed;
-  width: 10px;
-  height: 10px;
   background-color: hsl(var(--primary));
-  border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
-  transform: translate(-50%, -50%);
-  animation: neon-trail-fade 0.8s ease-out forwards;
-  box-shadow: 0 0 6px hsl(var(--primary)),
-              0 0 12px hsl(var(--primary)),
-              0 0 18px hsl(var(--primary));
+  border-radius: 2px;
+  animation: neon-trail-fade 0.5s ease-out forwards;
+  box-shadow: 0 0 4px hsl(var(--primary)),
+              0 0 8px hsl(var(--primary));
 }
 
 @keyframes neon-trail-fade {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.2);
+  from {
+    opacity: 0.8;
   }
-  100% {
+  to {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.1);
   }
 }
 
