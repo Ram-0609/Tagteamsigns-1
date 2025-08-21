@@ -96,26 +96,22 @@ input, textarea {
 }
 
 @layer utilities {
-  @keyframes click-blast-animation {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(3);
-      opacity: 0;
-    }
-  }
-
-  .click-blast {
+  .bullet-hole {
     position: fixed;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background-color: red;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" fill="black"/><path d="M45,45 L40,30 M55,45 L65,35 M55,55 L70,60 M45,55 L35,65" stroke="black" stroke-width="2" fill="none"/></svg>');
+    background-size: contain;
     pointer-events: none;
-    animation: click-blast-animation 0.5s ease-out forwards;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+    opacity: 1;
+  }
+  
+  .bullet-hole.fade-out {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
   }
 
   @keyframes crack {
