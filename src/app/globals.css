@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='black' d='M5.22 17.22a.5.5 0 0 0 .39.87l.2-.03c.16-.03.35-.1.56-.2l.27-.12c.23-.1.49-.24.78-.42l.6-.39c.28-.19.58-.4.9-.65l.5-.39c.32-.26.64-.54.94-.83l.27-.27c.3-.3.58-.62.83-.94l.39-.5c.25-.32.46-.62.65-.9l.39-.6c.18-.29.32-.55.42-.78l.12-.27c.1-.21.17-.4.2-.56l.03-.2a.5.5 0 0 0-.87-.39L13 10.41V5.5a.5.5 0 0 0-1 0v1.59L7.82 3.82a.5.5 0 0 0-.7.7L10.41 13 5.22 17.22Z'/><path fill='black' d='M4.5 19.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z'/></svg>") 12 12, auto;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><path fill='black' d='M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z' transform='rotate(-45 12 12)'/></svg>") 8 8, auto;
 }
 
 input, textarea {
