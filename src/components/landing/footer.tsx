@@ -16,7 +16,7 @@ export default function Footer() {
           </a>
         </div>
         <div className="text-center">
-          <p className="no-underline">&copy; 2020 TAGTEAMSIGNS • AN HONIST PRODUCTION</p>
+          <p className="font-headline tracking-widest uppercase text-xs no-underline">&copy; 2020 TAGTEAMSIGNS • AN HONIST PRODUCTION</p>
         </div>
       </div>
     </footer>
