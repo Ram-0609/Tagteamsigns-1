@@ -13,8 +13,19 @@ export default function RootLayout({
 }>) {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      // Crack effect
       const target = e.target as HTMLElement;
+
+      // Prevent effect on buttons and inputs
+      if (
+        target.tagName.toLowerCase() === 'button' ||
+        target.tagName.toLowerCase() === 'input' ||
+        target.tagName.toLowerCase() === 'textarea' ||
+        target.closest('button')
+      ) {
+        return;
+      }
+      
+      // Crack effect
       if (target) {
         target.classList.add('animate-crack');
         setTimeout(() => {
