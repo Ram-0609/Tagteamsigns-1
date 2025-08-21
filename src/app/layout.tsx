@@ -4,12 +4,33 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import React, { useEffect } from 'react';
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const blast = document.createElement('div');
+      blast.className = 'click-blast';
+      blast.style.left = `${e.clientX}px`;
+      blast.style.top = `${e.clientY}px`;
+      document.body.appendChild(blast);
+
+      setTimeout(() => {
+        blast.remove();
+      }, 500);
+    };
+
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
   
   return (
     <html lang="en" className="scroll-smooth">
