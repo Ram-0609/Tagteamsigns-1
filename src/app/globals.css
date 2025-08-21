@@ -4,7 +4,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' transform='rotate(-45)'><path d='M16 2L10 12h12L16 2z' fill='%23FF4500'/><path d='M12 12h8v12h-8z' fill='%23D3D3D3'/><path d='M10 24h12l-6 6-6-6z' fill='%23FFD700'/><path d='M14 14h4v8h-4z' fill='%23ADD8E6'/></svg>") 16 0, auto;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><defs><style>@keyframes pulse { 0% { stroke-width: 1; opacity: 0.5; } 50% { stroke-width: 3; opacity: 1; } 100% { stroke-width: 1; opacity: 0.5; } }</style></defs><circle cx='16' cy='16' r='8' fill='none' stroke='rgba(255,255,255,0.8)' style='animation: pulse 2s infinite ease-in-out;'/><circle cx='16' cy='16' r='2' fill='white'/></svg>") 16 16, auto;
 }
 
 input, textarea {
