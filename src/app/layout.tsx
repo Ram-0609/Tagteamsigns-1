@@ -20,22 +20,32 @@ export default function RootLayout({
       cursor.style.top = `${e.clientY}px`;
     };
 
-    const createRipple = (e: MouseEvent) => {
-      const ripple = document.createElement('div');
-      ripple.className = 'ripple';
-      document.body.appendChild(ripple);
-      ripple.style.left = `${e.clientX}px`;
-      ripple.style.top = `${e.clientY}px`;
-      
-      ripple.addEventListener('animationend', () => {
-        ripple.remove();
-      });
+    const createSparkle = (e: MouseEvent) => {
+      const sparkleCount = 8;
+      for (let i = 0; i < sparkleCount; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        document.body.appendChild(sparkle);
+        
+        const angle = (i / sparkleCount) * 2 * Math.PI;
+        const radius = Math.random() * 60 + 20;
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+
+        sparkle.style.left = `${e.clientX}px`;
+        sparkle.style.top = `${e.clientY}px`;
+        sparkle.style.setProperty('--transform-end', `translate(${x}px, ${y}px)`);
+
+        sparkle.addEventListener('animationend', () => {
+          sparkle.remove();
+        });
+      }
     };
 
     const mouseDown = (e: MouseEvent) => {
       if (e.button === 0) { // Left click
         cursor.classList.add('cursor-active');
-        createRipple(e);
+        createSparkle(e);
       } else if (e.button === 1) { // Middle click (scroll wheel)
         cursor.style.display = 'none';
       }
