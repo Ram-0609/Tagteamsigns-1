@@ -21,20 +21,25 @@ export default function RootLayout({
     };
 
     const createSparkle = (e: MouseEvent) => {
-      const sparkleCount = 8;
+      const sparkleCount = 20;
+      const fireworkColors = ['#FFC700', '#FF5733', '#C70039', '#900C3F', '#581845', '#FFFFFF'];
+      
       for (let i = 0; i < sparkleCount; i++) {
         const sparkle = document.createElement('div');
         sparkle.className = 'sparkle';
         document.body.appendChild(sparkle);
         
         const angle = (i / sparkleCount) * 2 * Math.PI;
-        const radius = Math.random() * 60 + 20;
+        const radius = Math.random() * 100 + 50;
         const x = Math.cos(angle) * radius;
         const y = Math.sin(angle) * radius;
+        const color = fireworkColors[Math.floor(Math.random() * fireworkColors.length)];
 
         sparkle.style.left = `${e.clientX}px`;
         sparkle.style.top = `${e.clientY}px`;
         sparkle.style.setProperty('--transform-end', `translate(${x}px, ${y}px)`);
+        sparkle.style.setProperty('--sparkle-color', color);
+        sparkle.style.animationDelay = `${Math.random() * 0.2}s`;
 
         sparkle.addEventListener('animationend', () => {
           sparkle.remove();
