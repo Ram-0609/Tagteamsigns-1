@@ -20,29 +20,27 @@ export default function RootLayout({
       cursor.style.top = `${e.clientY}px`;
     };
 
-    const createSparkle = (e: MouseEvent) => {
-      const sparkleCount = 20;
-      const fireworkColors = ['#FFC700', '#FF5733', '#C70039', '#900C3F', '#581845', '#FFFFFF'];
+    const createSmokePuff = (e: MouseEvent) => {
+      const puffCount = 10;
       
-      for (let i = 0; i < sparkleCount; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        document.body.appendChild(sparkle);
+      for (let i = 0; i < puffCount; i++) {
+        const puff = document.createElement('div');
+        puff.className = 'smoke-puff';
+        document.body.appendChild(puff);
         
-        const angle = (i / sparkleCount) * 2 * Math.PI;
-        const radius = Math.random() * 100 + 50;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-        const color = fireworkColors[Math.floor(Math.random() * fireworkColors.length)];
+        const angle = Math.random() * 2 * Math.PI;
+        const radius = Math.random() * 30;
+        const xOffset = Math.cos(angle) * radius;
+        const yOffset = Math.sin(angle) * radius;
 
-        sparkle.style.left = `${e.clientX}px`;
-        sparkle.style.top = `${e.clientY}px`;
-        sparkle.style.setProperty('--transform-end', `translate(${x}px, ${y}px)`);
-        sparkle.style.setProperty('--sparkle-color', color);
-        sparkle.style.animationDelay = `${Math.random() * 0.2}s`;
+        puff.style.left = `${e.clientX + xOffset}px`;
+        puff.style.top = `${e.clientY + yOffset}px`;
+        puff.style.animationDelay = `${Math.random() * 0.5}s`;
+        puff.style.setProperty('--scale-end', `${(Math.random() * 1.5 + 0.5).toFixed(2)}`);
 
-        sparkle.addEventListener('animationend', () => {
-          sparkle.remove();
+
+        puff.addEventListener('animationend', () => {
+          puff.remove();
         });
       }
     };
@@ -50,7 +48,7 @@ export default function RootLayout({
     const mouseDown = (e: MouseEvent) => {
       if (e.button === 0) { // Left click
         cursor.classList.add('cursor-active');
-        createSparkle(e);
+        createSmokePuff(e);
       } else if (e.button === 1) { // Middle click (scroll wheel)
         cursor.style.display = 'none';
       }

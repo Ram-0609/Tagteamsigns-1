@@ -28,30 +28,25 @@ body {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-.sparkle {
+.smoke-puff {
   position: fixed;
-  width: 6px;
-  height: 6px;
-  background: var(--sparkle-color);
+  background: rgba(180, 180, 180, 0.5);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   opacity: 0;
-  animation: firework-effect 1s ease-out;
-  box-shadow: 0 0 5px 2px var(--sparkle-color);
+  filter: blur(5px);
+  animation: smoke-effect 2s ease-out forwards;
 }
 
-@keyframes firework-effect {
+@keyframes smoke-effect {
   0% {
     opacity: 1;
-    transform: scale(0.5) translate(0, 0);
-  }
-  50% {
-    opacity: 1;
+    transform: scale(0.2) translateY(0);
   }
   100% {
     opacity: 0;
-    transform: scale(1.2) var(--transform-end) translateY(60px);
+    transform: scale(var(--scale-end, 1.5)) translateY(-60px);
   }
 }
 
