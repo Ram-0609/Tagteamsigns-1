@@ -16,7 +16,7 @@ export default function RootLayout({
     if (!cursor) return;
 
     let lastTrailTime = 0;
-    const trailCooldown = 25; // ms
+    const trailCooldown = 15; // ms
 
     const createTrail = (x: number, y: number) => {
       const trail = document.createElement('div');
@@ -28,7 +28,7 @@ export default function RootLayout({
 
       setTimeout(() => {
         trail.remove();
-      }, 500); 
+      }, 800); 
     };
 
     const moveCursor = (e: MouseEvent) => {
@@ -90,7 +90,7 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <div id="custom-cursor">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 3 L10 21 L12 11 L21 14 L3 3 Z" transform="rotate(15)"/>
+            <path d="M19.3,3.7c-0.4-0.4-1-0.4-1.4,0L4,17.6V20h2.4l12.9-12.9C19.7,6.7,19.7,6.1,19.3,5.7L19.3,3.7z M8.5,18H6v-2.5L14.5,7l2.5,2.5L8.5,18z"/>
           </svg>
         </div>
         {children}
