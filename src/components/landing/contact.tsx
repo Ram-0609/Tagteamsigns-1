@@ -22,9 +22,7 @@ import AnimatedSubmitButton from "./AnimatedSubmitButton";
 const formSchema = z.object({
   name: z.string(),
   email: z.string(),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
+  message: z.string(),
 });
 
 export default function Contact() {
