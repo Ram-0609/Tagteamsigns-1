@@ -5,6 +5,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import React, { useEffect } from 'react';
+import Chatbot from '@/components/chatbot/chatbot';
 
 export default function RootLayout({
   children,
@@ -70,6 +71,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         {children}
+        <Chatbot />
         <Toaster />
       </body>
     </html>
