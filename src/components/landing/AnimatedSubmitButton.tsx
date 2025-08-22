@@ -23,7 +23,7 @@ export default function AnimatedSubmitButton() {
 
     setTimeout(() => {
       setIsAnimating(false);
-    }, 2000); 
+    }, 4000); 
   };
   
   React.useEffect(() => {
@@ -31,7 +31,7 @@ export default function AnimatedSubmitButton() {
         setIsAnimating(true);
         const timeout = setTimeout(() => {
             setIsAnimating(false);
-        }, 2000);
+        }, 4000);
         return () => clearTimeout(timeout);
     }
   }, [formState.isSubmitSuccessful]);
@@ -72,26 +72,26 @@ export default function AnimatedSubmitButton() {
         .animated-button::after {
           content: '';
           position: absolute;
-          left: 0;
-          width: 100%;
-          height: 50%;
+          top: 0;
+          width: 50%;
+          height: 100%;
           background: #E21F26;
           transition: transform 0.4s cubic-bezier(0.83, 0, 0.17, 1);
           z-index: 1;
         }
         .animated-button::before {
-          top: 0;
-          border-radius: 0.5rem 0.5rem 0 0;
+          left: 0;
+          border-radius: 0.5rem 0 0 0.5rem;
         }
         .animated-button::after {
-          bottom: 0;
-          border-radius: 0 0 0.5rem 0.5rem;
+          right: 0;
+          border-radius: 0 0.5rem 0.5rem 0;
         }
         .animated-button.cracked::before {
-          transform: translateY(-100%) rotate(-8deg);
+          transform: translateX(-100%) rotate(-8deg);
         }
         .animated-button.cracked::after {
-          transform: translateY(100%) rotate(8deg);
+          transform: translateX(100%) rotate(8deg);
         }
         .button-text {
           position: relative;
@@ -109,19 +109,19 @@ export default function AnimatedSubmitButton() {
           transform: translateY(100%) rotate(-45deg);
         }
         .rocket-icon.launch {
-          animation: launch 1.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+          animation: launch 4s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
         }
         @keyframes launch {
           0% {
             transform: translateY(20px) rotate(-45deg);
             opacity: 1;
           }
-          40% {
+          20% {
             transform: translateY(-20px) rotate(-45deg);
             opacity: 1;
           }
           100% {
-            transform: translateY(-500px) rotate(-45deg);
+            transform: translateY(-1000px) rotate(-45deg);
             opacity: 0;
           }
         }
@@ -152,11 +152,11 @@ export default function AnimatedSubmitButton() {
                 opacity: 0;
             }
             20% {
-                transform: translate(-50%, 10px) scale(1);
+                transform: translate(-50%, 20px) scale(1);
                 opacity: 0.8;
             }
             100% {
-                transform: translate(-50%, 60px) scale(3);
+                transform: translate(-50%, 80px) scale(4);
                 opacity: 0;
             }
         }
@@ -168,7 +168,7 @@ export default function AnimatedSubmitButton() {
         className={cn("animated-button", (formState.isSubmitting || isAnimating) ? "cracked" : "")}
       >
         <span className="button-text">
-          {formState.isSubmitting ? 'Sending...' : 'Submit'}
+          {formState.isSubmitting ? 'Sending...' : formState.isSubmitSuccessful ? 'Sent!' : 'Submit'}
         </span>
         <span className={cn("rocket-icon", (formState.isSubmitting || isAnimating) ? "launch" : "")}>🚀</span>
         <div className="smoke-container">
