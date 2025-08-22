@@ -127,7 +127,7 @@ export default function AnimatedSubmitButton() {
         }
         .smoke {
             position: absolute;
-            bottom: 10px;
+            bottom: 0;
             left: 50%;
             width: 8px;
             height: 8px;
@@ -135,15 +135,16 @@ export default function AnimatedSubmitButton() {
             border-radius: 50%;
             opacity: 0;
             z-index: 0;
+            transform: translateX(-50%);
         }
         .animated-button.cracked .smoke {
             animation: smoke-plume 1.5s ease-out forwards;
         }
-        .smoke-1 { animation-delay: 0.1s; }
-        .smoke-2 { animation-delay: 0.2s; left: 45%; }
-        .smoke-3 { animation-delay: 0.3s; left: 55%; }
-        .smoke-4 { animation-delay: 0.4s; left: 40%; }
-        .smoke-5 { animation-delay: 0.5s; left: 60%; }
+        .smoke-1 { animation-delay: 0.2s; }
+        .smoke-2 { animation-delay: 0.3s; left: 45%; }
+        .smoke-3 { animation-delay: 0.4s; left: 55%; }
+        .smoke-4 { animation-delay: 0.5s; left: 40%; }
+        .smoke-5 { animation-delay: 0.6s; left: 60%; }
 
         @keyframes smoke-plume {
             0% {
@@ -151,11 +152,11 @@ export default function AnimatedSubmitButton() {
                 opacity: 0;
             }
             20% {
-                transform: translate(-50%, -10px) scale(1);
+                transform: translate(-50%, 10px) scale(1);
                 opacity: 0.8;
             }
             100% {
-                transform: translate(-50%, -60px) scale(3);
+                transform: translate(-50%, 60px) scale(3);
                 opacity: 0;
             }
         }
