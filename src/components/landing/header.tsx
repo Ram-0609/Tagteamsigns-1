@@ -95,44 +95,46 @@ export default function Header() {
             <span className="text-[0.6rem] uppercase tracking-widest text-foreground/80">ROC#240355</span>
           </div>
         </a>
-        <nav ref={navRef} className="relative hidden items-center space-x-4 md:flex">
-          {navLinks.map((link) => (
-            <NavLink key={link.href} {...link} />
-          ))}
-          {isHomePage && (
-            <div
-              className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-in-out"
-              style={{ left: underlineStyle.left, width: underlineStyle.width }}
-            />
-          )}
-        </nav>
-        <div className="md:hidden">
-          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="mt-8 flex flex-col items-center space-y-8">
-                {navLinks.map((link) => (
-                    <a
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setIsSheetOpen(false)}
-                        className={`relative py-2 font-headline font-extrabold uppercase tracking-tight transition-colors hover:text-primary ${
-                            activeSection === link.id ? "text-primary" : "text-muted-foreground"
-                        }`}
-                    >
-                        {link.label}
-                        {activeSection === link.id && isHomePage && (
-                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-6 bg-primary transition-all"></span>
-                        )}
-                    </a>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
+        <div className="flex items-center">
+            <nav ref={navRef} className="relative hidden items-center space-x-4 md:flex">
+            {navLinks.map((link) => (
+                <NavLink key={link.href} {...link} />
+            ))}
+            {isHomePage && (
+                <div
+                className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-in-out"
+                style={{ left: underlineStyle.left, width: underlineStyle.width }}
+                />
+            )}
+            </nav>
+            <div className="md:hidden">
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
+                </Button>
+                </SheetTrigger>
+                <SheetContent side="right">
+                <nav className="mt-8 flex flex-col items-center space-y-8">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setIsSheetOpen(false)}
+                            className={`relative py-2 font-headline font-extrabold uppercase tracking-tight transition-colors hover:text-primary ${
+                                activeSection === link.id ? "text-primary" : "text-muted-foreground"
+                            }`}
+                        >
+                            {link.label}
+                            {activeSection === link.id && isHomePage && (
+                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-6 bg-primary transition-all"></span>
+                            )}
+                        </a>
+                    ))}
+                </nav>
+                </SheetContent>
+            </Sheet>
+            </div>
         </div>
       </div>
     </header>
