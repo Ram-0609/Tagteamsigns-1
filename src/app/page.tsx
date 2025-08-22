@@ -5,6 +5,7 @@ import About from '@/components/landing/about';
 import Work from '@/components/landing/work';
 import Contact from '@/components/landing/contact';
 import Footer from '@/components/landing/footer';
+import SloganGenerator from '@/components/landing/slogan-generator';
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
         <Services />
         <About />
         <Work />
+        <SloganGenerator />
         <Contact />
       </main>
       <Footer />
