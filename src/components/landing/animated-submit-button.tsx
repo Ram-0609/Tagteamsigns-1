@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 
 export function AnimatedSubmitButton() {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [textVisible, setTextVisible] = useState(true);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -13,13 +14,15 @@ export function AnimatedSubmitButton() {
       return;
     }
     setIsAnimating(true);
+    setTextVisible(false);
   };
 
   useEffect(() => {
     if (isAnimating) {
       const timer = setTimeout(() => {
         setIsAnimating(false);
-      }, 1600); // Animation duration + reset delay
+        setTextVisible(true);
+      }, 1600); // Corresponds to animation duration
 
       return () => clearTimeout(timer);
     }
@@ -39,7 +42,7 @@ export function AnimatedSubmitButton() {
         disabled={isAnimating}
         style={{ perspective: '500px' }}
       >
-        <span className={cn('button-text', { 'fade-out': isAnimating })}>Submit</span>
+        <span className={cn('button-text', { 'fade-out': !textVisible })}>Submit</span>
         <span className={cn('button-part left', { 'animate': isAnimating })}></span>
         <span className={cn('button-part right', { 'animate': isAnimating })}></span>
         <span className={cn('rocket', { 'launch': isAnimating })}>🚀</span>
