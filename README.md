@@ -1,3 +1,4 @@
+Connect this workspace to my Firebase project "tagteamsigns-12345".
 # Firebase Studio
 
 This is a NextJS starter in Firebase Studio.
