@@ -125,6 +125,40 @@ export default function AnimatedSubmitButton() {
             opacity: 0;
           }
         }
+        .smoke {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            width: 8px;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 0;
+        }
+        .animated-button.cracked .smoke {
+            animation: smoke-plume 1.5s ease-out forwards;
+        }
+        .smoke-1 { animation-delay: 0.1s; }
+        .smoke-2 { animation-delay: 0.2s; left: 45%; }
+        .smoke-3 { animation-delay: 0.3s; left: 55%; }
+        .smoke-4 { animation-delay: 0.4s; left: 40%; }
+        .smoke-5 { animation-delay: 0.5s; left: 60%; }
+
+        @keyframes smoke-plume {
+            0% {
+                transform: translate(-50%, 0) scale(0.5);
+                opacity: 0;
+            }
+            20% {
+                transform: translate(-50%, -10px) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translate(-50%, -60px) scale(3);
+                opacity: 0;
+            }
+        }
       `}</style>
       <button
         ref={buttonRef}
@@ -136,6 +170,13 @@ export default function AnimatedSubmitButton() {
           {formState.isSubmitting ? 'Sending...' : 'Submit'}
         </span>
         <span className={cn("rocket-icon", (formState.isSubmitting || isAnimating) ? "launch" : "")}>🚀</span>
+        <div className="smoke-container">
+            <span className="smoke smoke-1"></span>
+            <span className="smoke smoke-2"></span>
+            <span className="smoke smoke-3"></span>
+            <span className="smoke smoke-4"></span>
+            <span className="smoke smoke-5"></span>
+        </div>
       </button>
     </>
   );
