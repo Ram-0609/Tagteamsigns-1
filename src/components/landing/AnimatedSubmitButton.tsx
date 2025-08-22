@@ -1,6 +1,7 @@
+
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 type AnimatedSubmitButtonProps = {
@@ -14,34 +15,41 @@ export default function AnimatedSubmitButton({ isSubmitting, onClick }: Animated
 
   const handleClick = () => {
     if (isSubmitting || isAnimating) return;
-
+    
     setIsAnimating(true);
     onClick();
   };
+  
+  useEffect(() => {
+    if (isAnimating) {
+        const button = buttonRef.current;
+        if (!button) return;
 
-  React.useEffect(() => {
-    if (!isAnimating) return;
+        const rocket = button.querySelector('.rocket-icon') as HTMLElement;
+        const buttonText = button.querySelector('.button-text') as HTMLElement;
 
-    const button = buttonRef.current;
-    if (!button) return;
-    
-    const rocket = button.querySelector('.rocket-icon') as HTMLElement;
-    const buttonText = button.querySelector('.button-text') as HTMLElement;
+        if (buttonText) buttonText.style.opacity = '0';
+        
+        button.classList.add('cracked');
+        if(rocket) rocket.classList.add('launch');
 
-    if (buttonText) buttonText.style.opacity = '0';
-    
-    button.classList.add('cracked');
-    if(rocket) rocket.classList.add('launch');
-
-    const animationTimeout = setTimeout(() => {
-      button.classList.remove('cracked');
-      if(rocket) rocket.classList.remove('launch');
-      if (buttonText) buttonText.style.opacity = '1';
-      setIsAnimating(false);
-    }, 2500);
-
-    return () => clearTimeout(animationTimeout);
+        const animationTimeout = setTimeout(() => {
+            button.classList.remove('cracked');
+            if(rocket) rocket.classList.remove('launch');
+            setIsAnimating(false);
+        }, 2500);
+        
+        return () => clearTimeout(animationTimeout);
+    }
   }, [isAnimating]);
+
+  useEffect(() => {
+    if (!isSubmitting && !isAnimating) {
+        const button = buttonRef.current;
+        const buttonText = button?.querySelector('.button-text') as HTMLElement;
+        if (buttonText) buttonText.style.opacity = '1';
+    }
+  }, [isSubmitting, isAnimating]);
 
   return (
     <>
@@ -100,11 +108,20 @@ export default function AnimatedSubmitButton({ isSubmitting, onClick }: Animated
           font-size: 1.5rem;
           opacity: 0;
           transform: translateY(100%);
-          transition: transform 1.5s cubic-bezier(0.83, 0, 0.17, 1), opacity 0.5s ease;
         }
         .rocket-icon.launch {
           opacity: 1;
-          transform: translateY(-200px) rotate(45deg);
+          animation: launch 1.5s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+        }
+        @keyframes launch {
+          0% {
+            transform: translateY(0) rotate(-45deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-150px) rotate(-45deg);
+            opacity: 0;
+          }
         }
       `}</style>
       <button
@@ -114,7 +131,7 @@ export default function AnimatedSubmitButton({ isSubmitting, onClick }: Animated
         className={cn("animated-button", isAnimating ? "cracked" : "")}
       >
         <span className="button-text">
-          {isSubmitting ? 'Sending...' : (isAnimating ? '' : 'Submit')}
+          {isSubmitting ? 'Sending...' : 'Submit'}
         </span>
         <span className={cn("rocket-icon", isAnimating ? "launch" : "")}>🚀</span>
       </button>

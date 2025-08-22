@@ -47,7 +47,7 @@ export default function Contact() {
         description: "Thanks for reaching out. We'll get back to you soon.",
       });
       form.reset();
-    }, 1000);
+    }, 2500);
   }
 
   return (
@@ -72,7 +72,7 @@ export default function Contact() {
                     <FormItem className="text-left">
                       <FormLabel className="font-semibold uppercase">Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Name" required {...field} />
+                        <Input placeholder="Your Name" {...field} />
                       </FormControl>
                     </FormItem>
                   )}
@@ -84,7 +84,7 @@ export default function Contact() {
                     <FormItem className="text-left">
                       <FormLabel className="font-semibold uppercase">Email</FormLabel>
                       <FormControl>
-                        <Input type="email" placeholder="your@email.com" required {...field} />
+                        <Input type="email" placeholder="your@email.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -97,7 +97,7 @@ export default function Contact() {
                     <FormItem className="text-left">
                       <FormLabel className="font-semibold uppercase">Message</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Tell us about your project" rows={5} required {...field} />
+                        <Textarea placeholder="Tell us about your project" rows={5} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
