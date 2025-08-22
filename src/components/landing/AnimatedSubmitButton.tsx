@@ -88,10 +88,10 @@ export default function AnimatedSubmitButton() {
           border-radius: 0 0 0.5rem 0.5rem;
         }
         .animated-button.cracked::before {
-          transform: translateY(-100%) rotate(-8deg);
+          transform: translateY(-100%);
         }
         .animated-button.cracked::after {
-          transform: translateY(100%) rotate(8deg);
+          transform: translateY(100%);
         }
         .button-text {
           position: relative;
