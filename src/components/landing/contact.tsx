@@ -24,6 +24,7 @@ import AnimatedSubmitButton from "./AnimatedSubmitButton";
 const formSchema = z.object({
   name: z.string(),
   email: z.string(),
+  subject: z.string(),
   message: z.string(),
 });
 
@@ -36,6 +37,7 @@ export default function Contact() {
     defaultValues: {
       name: "",
       email: "",
+      subject: "",
       message: "",
     },
   });
@@ -90,6 +92,19 @@ export default function Contact() {
                       <FormLabel className="font-semibold uppercase">Email</FormLabel>
                       <FormControl>
                         <Input type="email" placeholder="your@email.com" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem className="text-left">
+                      <FormLabel className="font-semibold uppercase">Subject</FormLabel>
+                      <FormControl>
+                        <Input placeholder="What is this regarding?" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
