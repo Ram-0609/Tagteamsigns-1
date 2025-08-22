@@ -4,6 +4,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import Image from "next/image";
+import { Mail, Phone } from 'lucide-react';
 
 import {
   Form,
@@ -59,13 +61,13 @@ export default function Contact() {
         ref={ref}
         className="container mx-auto max-w-[1200px] px-6 md:px-12"
       >
-        <div className="text-center">
-          <div className={`jump-in-animate ${isOnScreen ? 'jump-in-animate-in' : ''}`}>
+        <div className={`jump-in-animate text-center ${isOnScreen ? 'jump-in-animate-in' : ''}`}>
             <h2 className="font-headline text-3xl font-bold uppercase tracking-tight md:text-4xl">
               Get In Touch
             </h2>
-          </div>
-          <div className={`contact-form-animate ${isOnScreen ? 'contact-form-animate-in' : ''} mx-auto mt-8 max-w-2xl rounded-lg border bg-card p-6 shadow-sm`} style={{ transitionDelay: '100ms' }}>
+        </div>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 md:gap-16">
+          <div className={`contact-form-animate ${isOnScreen ? 'contact-form-animate-in' : ''} rounded-lg border bg-card p-6 shadow-sm`} style={{ transitionDelay: '100ms' }}>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -111,6 +113,28 @@ export default function Contact() {
                 </div>
               </form>
             </Form>
+          </div>
+          <div className={`contact-form-animate ${isOnScreen ? 'contact-form-animate-in' : ''} mt-8 md:mt-0 text-left`} style={{ transitionDelay: '200ms' }}>
+            <h3 className="text-2xl font-bold font-headline text-primary">We can't wait to hear from you</h3>
+             <div className="my-4">
+              <Image 
+                src="https://static.wixstatic.com/media/282ef0_32249e088a5348a486e41416e788b17a~mv2.png/v1/fill/w_200,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/TAGTEAMSIGNS%20COMMERCIAL_Logo2.png" 
+                alt="TagTeamSigns Commercial Logo"
+                data-ai-hint="company logo" 
+                width={200}
+                height={100}
+                />
+            </div>
+            <div className="space-y-4 text-foreground">
+               <a href="mailto:signs@tagteamsigns.com" className="flex items-center gap-3 transition-colors hover:text-primary">
+                <Mail className="h-5 w-5" />
+                <span>signs@tagteamsigns.com</span>
+              </a>
+              <a href="tel:623-875-8077" className="flex items-center gap-3 transition-colors hover:text-primary">
+                <Phone className="h-5 w-5" />
+                <span>623-875-8077</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
