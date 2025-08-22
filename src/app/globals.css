@@ -104,9 +104,10 @@ input, textarea {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" fill="black"/><path d="M45,45 L40,30 M55,45 L65,35 M55,55 L70,60 M45,55 L35,65" stroke="black" stroke-width="2" fill="none"/></svg>');
     background-size: contain;
     pointer-events: none;
-    transform: translate(-50%, -50%) rotate(0deg);
-    transition: opacity 2s ease-out, transform 2s ease-out;
+    transform: translate(-50%, -50%);
+    transition: opacity 1s ease-out, transform 1s ease-out;
     opacity: 1;
+    z-index: 9999;
   }
   
   .bullet-hole.fade-out {

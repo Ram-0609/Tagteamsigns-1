@@ -35,7 +35,7 @@ export default function RootLayout({
 
       // Bullet hole effect
       const existingHoles = document.querySelectorAll('.bullet-hole');
-      if (existingHoles.length >= 10) {
+      if (existingHoles.length >= 15) {
         existingHoles[0].remove();
       }
 
@@ -49,9 +49,11 @@ export default function RootLayout({
       setTimeout(() => {
         hole.classList.add('fade-out');
         setTimeout(() => {
-          hole.remove();
-        }, 2000);
-      }, 5000);
+          if (hole.parentElement) {
+            hole.parentElement.removeChild(hole);
+          }
+        }, 1000); 
+      }, 3000);
     };
 
     document.addEventListener('click', handleClick);
