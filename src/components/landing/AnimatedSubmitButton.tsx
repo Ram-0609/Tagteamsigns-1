@@ -121,7 +121,7 @@ export default function AnimatedSubmitButton() {
             opacity: 1;
           }
           100% {
-            transform: translateY(-180px) rotate(-45deg);
+            transform: translateY(-500px) rotate(-45deg);
             opacity: 0;
           }
         }
