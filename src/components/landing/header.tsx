@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -91,6 +92,7 @@ export default function Header() {
           <div className="flex flex-col">
             <span className="font-headline text-2xl font-black uppercase tracking-tight text-primary">TAGTEAMSIGNS</span>
             <span className="text-xs uppercase tracking-widest text-foreground/80">Design. Build. Install</span>
+            <span className="text-xs uppercase tracking-widest text-foreground/80">ROC#240355</span>
           </div>
         </a>
         <nav ref={navRef} className="relative hidden items-center space-x-4 md:flex">
