@@ -16,7 +16,7 @@ const HistoryItemSchema = z.object({
     content: z.string(),
 });
 
-export const ChatInputSchema = z.object({
+const ChatInputSchema = z.object({
   history: z.array(HistoryItemSchema).describe("The chat history."),
   message: z.string().describe('The latest user message.'),
 });
@@ -26,11 +26,7 @@ export async function chat(input: ChatInput): Promise<string> {
   return chatFlow(input);
 }
 
-const prompt = ai.definePrompt({
-  name: 'chatbotPrompt',
-  input: { schema: ChatInputSchema },
-  output: { format: 'text' },
-  prompt: `You are a friendly and helpful AI assistant for TAGTEAMSIGNS, a full-service sign company.
+const systemPrompt = `You are a friendly and helpful AI assistant for TAGTEAMSIGNS, a full-service sign company.
 Your name is "TAGTEAMSIGNS Assistant".
 
 The company specializes in:
@@ -52,26 +48,11 @@ Key offerings include:
 
 The company has over 20 years in the industry.
 
-Use the provided chat history to maintain context.
 Answer the user's questions based on the information above.
 If the user asks about something you don't know, respond with: "I’m not sure about that, but I can connect you with our team for more information."
 If the user asks for contact information, guide them to the contact form on the website.
 If the user wants to see work examples, direct them to the "Work" section of the website.
-
-Chat History:
-{{#each history}}
-{{#if (eq role 'user')}}
-User: {{{content}}}
-{{else}}
-Assistant: {{{content}}}
-{{/if}}
-{{/each}}
-
-New User Message:
-{{{message}}}
-
-Your response:`,
-});
+`;
 
 const chatFlow = ai.defineFlow(
   {
@@ -80,7 +61,17 @@ const chatFlow = ai.defineFlow(
     outputSchema: z.string(),
   },
   async (input) => {
-    const { output } = await prompt(input);
+    const { history, message } = input;
+    
+    const { output } = await ai.generate({
+      prompt: message,
+      history: history,
+      system: systemPrompt,
+      output: {
+        format: 'text',
+      }
+    });
+
     return output!;
   }
 );
