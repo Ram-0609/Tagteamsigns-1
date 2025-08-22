@@ -1,65 +1,109 @@
 "use client";
 
-import { useState, useRef } from 'react';
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import checkmarkAnimation from '@/animations/checkmark.json';
 
 export function AnimatedSubmitButton() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const handleClick = () => {
-    if (isSubmitted) return;
-    
-    setIsSubmitted(true);
-    if(lottieRef.current) {
-        lottieRef.current.play();
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (isAnimating) {
+      e.preventDefault();
+      return;
     }
-
-    setTimeout(() => {
-        setIsSubmitted(false);
-        if(lottieRef.current) {
-            lottieRef.current.stop();
-        }
-    }, 2000);
+    setIsAnimating(true);
   };
+
+  useEffect(() => {
+    if (isAnimating) {
+      const timer = setTimeout(() => {
+        setIsAnimating(false);
+      }, 1600); // Animation duration + reset delay
+
+      return () => clearTimeout(timer);
+    }
+  }, [isAnimating]);
 
   return (
     <div className="w-full md:w-auto">
       <button
+        ref={buttonRef}
         type="submit"
         className={cn(
           'relative flex items-center justify-center w-full md:w-auto h-11 px-8 rounded-md text-white font-medium overflow-hidden transition-all duration-300',
-          'bg-primary hover:bg-primary/90 active:scale-95',
-          isSubmitted && 'bg-green-500'
+          'bg-primary active:scale-95',
+          isAnimating ? 'crack-open' : ''
         )}
         onClick={handleClick}
-        disabled={isSubmitted}
+        disabled={isAnimating}
+        style={{ perspective: '500px' }}
       >
-        <span
-          className={cn(
-            'transition-all duration-300',
-            isSubmitted ? 'opacity-0 scale-50' : 'opacity-100 scale-100'
-          )}
-        >
-          Submit
-        </span>
-        <div 
-          className={cn(
-            'absolute inset-0 flex items-center justify-center',
-            !isSubmitted && 'hidden'
-          )}
-        >
-            <Lottie 
-                lottieRef={lottieRef}
-                animationData={checkmarkAnimation} 
-                loop={false}
-                autoplay={false}
-                style={{ width: 64, height: 64 }}
-            />
-        </div>
+        <span className={cn('button-text', { 'fade-out': isAnimating })}>Submit</span>
+        <span className={cn('button-part left', { 'animate': isAnimating })}></span>
+        <span className={cn('button-part right', { 'animate': isAnimating })}></span>
+        <span className={cn('rocket', { 'launch': isAnimating })}>🚀</span>
       </button>
+      <style jsx>{`
+        .button-text {
+          transition: opacity 0.2s ease-out;
+        }
+        .button-text.fade-out {
+          opacity: 0;
+        }
+        .button-part {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: 51%;
+          background-color: #E21F26;
+          transition: transform 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+          transform-origin: center;
+        }
+        .button-part.left {
+          left: 0;
+          border-top-left-radius: 0.375rem;
+          border-bottom-left-radius: 0.375rem;
+        }
+        .button-part.right {
+          right: 0;
+          border-top-right-radius: 0.375rem;
+          border-bottom-right-radius: 0.375rem;
+        }
+        .button-part.left.animate {
+          transform: translateX(-100%) rotateY(-60deg);
+        }
+        .button-part.right.animate {
+          transform: translateX(100%) rotateY(60deg);
+        }
+        .rocket {
+          position: absolute;
+          font-size: 1.5rem;
+          opacity: 0;
+          transform: translateY(20px) rotate(-45deg);
+        }
+        .rocket.launch {
+          animation: launch 1.5s ease-out forwards;
+          animation-delay: 0.1s;
+        }
+        @keyframes launch {
+          0% {
+            opacity: 0;
+            transform: translateY(20px) scale(0.5) rotate(-45deg);
+          }
+          20% {
+            opacity: 1;
+            transform: translateY(0) scale(1) rotate(-45deg);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(-200px) scale(1.5) rotate(-45deg);
+          }
+        }
+        .crack-open {
+          background-color: transparent !important;
+        }
+      `}</style>
     </div>
   );
 }

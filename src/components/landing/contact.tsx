@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useOnScreen } from "@/hooks/use-on-screen";
-import { Button } from "../ui/button";
+import { AnimatedSubmitButton } from "./animated-submit-button";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -107,7 +107,7 @@ export default function Contact() {
                   )}
                 />
                 <div className="flex justify-end pt-2">
-                   <Button type="submit">Submit</Button>
+                   <AnimatedSubmitButton />
                 </div>
               </form>
             </Form>
