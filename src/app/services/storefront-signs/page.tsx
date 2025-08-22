@@ -11,16 +11,19 @@ const galleryImages = [
     src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPdw9zxF16RhMSUreeDVNi-Q6evKLz_7dz0g&s',
     alt: 'Illuminated channel letters for a modern storefront',
     hint: 'storefront sign',
+    description: 'Bright, bold, and beautiful. Our illuminated channel letters ensure your business gets noticed, day or night. Perfect for making a statement.',
   },
   {
     src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiCkwY6maJ1dtRuUWINyVjPKkVsPLvwBTkRg&s',
     alt: 'Awnings with branded graphics for a restaurant',
     hint: 'storefront sign',
+    description: 'Combine style and function with our custom-branded awnings. They provide shelter while extending your brand\'s presence to the sidewalk.',
   },
   {
     src: 'https://www.davessigns.com/wp-content/uploads/2023/04/bf5398cf-36b4-40ae-81b6-61d977d2ab19.jpg',
     alt: 'Dimensional letter sign on a brick wall',
     hint: 'storefront sign',
+    description: 'Add depth and elegance to your building\'s facade with our dimensional letter signs. A sophisticated choice that exudes professionalism.',
   },
 ];
 
@@ -48,15 +51,22 @@ export default function StorefrontSignsPage() {
         
         <div className="grid grid-cols-1 sm:grid-cols-3">
           {galleryImages.map((image, index) => (
-            <div key={index} className="group relative overflow-hidden">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                data-ai-hint={image.hint}
-                width={600}
-                height={400}
-                className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-              />
+            <div key={index} className="flip-card aspect-square">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    data-ai-hint={image.hint}
+                    width={600}
+                    height={400}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flip-card-back bg-white p-6 flex items-center justify-center text-center">
+                    <p className="text-foreground">{image.description}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
