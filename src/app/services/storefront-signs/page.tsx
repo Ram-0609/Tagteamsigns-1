@@ -52,7 +52,7 @@ export default function StorefrontSignsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3">
           {galleryImages.map((image, index) => (
             <div key={index} className="flip-card group aspect-square">
-              <div className="flip-card-inner group-hover:rotate-y-180">
+              <div className="flip-card-inner">
                 <div className="flip-card-front">
                   <Image
                     src={image.src}
@@ -76,3 +76,5 @@ export default function StorefrontSignsPage() {
     </div>
   );
 }
+
+    

@@ -252,7 +252,7 @@ input, textarea {
     transition: transform 0.6s;
     transform-style: preserve-3d;
   }
-  .group-hover\:rotate-y-180 {
+  .group-hover\:rotate-y-180 .flip-card-inner {
       transform: rotateY(180deg);
   }
   .flip-card-front, .flip-card-back {
@@ -266,3 +266,5 @@ input, textarea {
     transform: rotateY(180deg);
   }
 }
+
+    
