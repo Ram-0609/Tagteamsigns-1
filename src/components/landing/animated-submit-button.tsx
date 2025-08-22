@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Check } from 'lucide-react';
 
 export function AnimatedSubmitButton() {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -19,14 +18,18 @@ export function AnimatedSubmitButton() {
   };
 
   useEffect(() => {
+    let timer: NodeJS.Timeout;
     if (isAnimating) {
-      const timer = setTimeout(() => {
+      // Total animation time is roughly 1.5s for launch + reset
+      timer = setTimeout(() => {
         setIsAnimating(false);
-        setTextVisible(true);
-      }, 2000); // Animation duration
-
-      return () => clearTimeout(timer);
+        // Delay showing text until button is fully reset
+        setTimeout(() => {
+            setTextVisible(true);
+        }, 200);
+      }, 1800);
     }
+    return () => clearTimeout(timer);
   }, [isAnimating]);
 
   return (
@@ -45,21 +48,9 @@ export function AnimatedSubmitButton() {
       >
         <span className={cn('button-text', { 'fade-out': !textVisible })}>Submit</span>
         
-        {/* Surprise Box Elements */}
-        <div className="surprise-box">
-          <div className="box-lid"></div>
-          <div className="box-body"></div>
-          <div className="box-ribbon-h"></div>
-          <div className="box-ribbon-v"></div>
-        </div>
-
-        {/* Confetti & Checkmark */}
-        <div className="effects">
-          <div className="checkmark"><Check size={32} /></div>
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div key={i} className="confetti" style={{ '--i': i } as React.CSSProperties}></div>
-          ))}
-        </div>
+        <span className="rocket">🚀</span>
+        <div className="crack-top"></div>
+        <div className="crack-bottom"></div>
       </button>
       <style jsx>{`
         .button-text {
@@ -70,126 +61,65 @@ export function AnimatedSubmitButton() {
           opacity: 0;
         }
 
-        .surprise-box {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
+        .crack-top,
+        .crack-bottom {
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 50%;
+          background: #E21F26;
+          transition: transform 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
         }
 
-        .box-body {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #E21F26;
-            border-radius: 0.375rem;
-            transition: transform 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+        .crack-top {
+          top: 0;
+          border-bottom: 1px solid #c01a20;
+          transform-origin: bottom;
+          border-top-left-radius: 0.375rem;
+          border-top-right-radius: 0.375rem;
         }
 
-        .box-lid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 25%;
-            background-color: #c01a20;
-            border-top-left-radius: 0.375rem;
-            border-top-right-radius: 0.375rem;
-            z-index: 2;
-            transition: transform 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-            transform-origin: top center;
+        .crack-bottom {
+          bottom: 0;
+          border-top: 1px solid #c01a20;
+          transform-origin: top;
+          border-bottom-left-radius: 0.375rem;
+          border-bottom-right-radius: 0.375rem;
         }
 
-        .box-ribbon-v, .box-ribbon-h {
-            position: absolute;
-            background-color: #f0a80e;
-        }
-        .box-ribbon-v {
-            top: 0;
-            left: 50%;
-            width: 12px;
-            height: 100%;
-            transform: translateX(-50%);
-        }
-        .box-ribbon-h {
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            transform: translateY(-50%);
-            z-index: 1;
+        .is-animating .crack-top {
+          transform: translateY(-20%) scaleY(0.8) rotateX(-20deg);
         }
         
-        .is-animating .box-lid {
-            transform: translateY(-100%) rotateX(-90deg);
+        .is-animating .crack-bottom {
+          transform: translateY(20%) scaleY(0.8) rotateX(20deg);
         }
-        .is-animating .box-body {
-            transform: translateY(20%) scale(0.95);
+
+        .rocket {
+          position: absolute;
+          font-size: 2rem;
+          opacity: 0;
+          pointer-events: none;
+          z-index: 5;
         }
-        .is-animating .box-ribbon-h, .is-animating .box-ribbon-v {
+
+        .is-animating .rocket {
+          animation: launch 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes launch {
+          0% {
+            transform: translateY(0) scale(0.5);
             opacity: 0;
-            transition: opacity 0.2s ease-out;
-        }
-
-        .effects {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .checkmark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            color: #4ade80; /* green-400 */
+          }
+          20% {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(-150px) scale(1.5) rotate(45deg);
             opacity: 0;
-        }
-
-        .is-animating .checkmark {
-            animation: pop-in 0.5s 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        .confetti {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: hsl(var(--i) * 18, 90%, 60%);
-            top: 50%;
-            left: 50%;
-            opacity: 0;
-            transform-origin: center;
-        }
-
-        .is-animating .confetti {
-            animation: explode 1.2s 0.3s ease-out forwards;
-        }
-
-        @keyframes pop-in {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-        }
-
-        @keyframes explode {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(
-                    calc(-50% + cos(var(--i) * 18deg) * 100px), 
-                    calc(-50% + sin(var(--i) * 18deg) * 100px)
-                ) rotate(360deg) scale(0);
-                opacity: 0;
-            }
+          }
         }
       `}</style>
     </div>
