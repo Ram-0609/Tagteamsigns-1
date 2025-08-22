@@ -17,13 +17,13 @@ const galleryImages = [
     src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiCkwY6maJ1dtRuUWINyVjPKkVsPLvwBTkRg&s',
     alt: 'Awnings with branded graphics for a restaurant',
     hint: 'storefront sign',
-    description: 'Combine style and function with our custom-branded awnings. They provide shelter while extending your brand\'s presence to the sidewalk.',
+    description: "Combine style and function with our custom-branded awnings. They provide shelter while extending your brand's presence to the sidewalk.",
   },
   {
     src: 'https://www.davessigns.com/wp-content/uploads/2023/04/bf5398cf-36b4-40ae-81b6-61d977d2ab19.jpg',
     alt: 'Dimensional letter sign on a brick wall',
     hint: 'storefront sign',
-    description: 'Add depth and elegance to your building\'s facade with our dimensional letter signs. A sophisticated choice that exudes professionalism.',
+    description: "Add depth and elegance to your building's facade with our dimensional letter signs. A sophisticated choice that exudes professionalism.",
   },
 ];
 
