@@ -45,11 +45,14 @@ export default function Contact() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you soon.",
-    });
-    form.reset();
+    
+    setTimeout(() => {
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for reaching out. We'll get back to you soon.",
+      });
+      form.reset();
+    }, 1800);
   }
 
   return (
