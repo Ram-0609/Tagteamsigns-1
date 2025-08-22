@@ -1,3 +1,4 @@
+
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,9 +20,7 @@ import { useOnScreen } from "@/hooks/use-on-screen";
 import AnimatedSubmitButton from "./AnimatedSubmitButton";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
+  name: z.string(),
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
@@ -79,7 +78,6 @@ export default function Contact() {
                       <FormControl>
                         <Input placeholder="Your Name" required {...field} />
                       </FormControl>
-                      <FormMessage />
                     </FormItem>
                   )}
                 />
