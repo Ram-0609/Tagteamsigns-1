@@ -7,7 +7,20 @@ import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { MessageCircle, Send, X, Bot, User, Loader } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { chat, type ChatInput } from '@/ai/flows/chatbot-flow';
+import { chat } from '@/ai/flows/chatbot-flow';
+import { z } from 'zod';
+
+const HistoryItemSchema = z.object({
+  role: z.enum(['user', 'model']),
+  content: z.string(),
+});
+
+const ChatInputSchema = z.object({
+  history: z.array(HistoryItemSchema).describe("The chat history."),
+  message: z.string().describe('The latest user message.'),
+});
+type ChatInput = z.infer<typeof ChatInputSchema>;
+
 
 type Message = {
   id: string;
@@ -54,13 +67,13 @@ export default function Chatbot() {
     setIsTyping(true);
 
     try {
-        const history = messages.map(m => ({
+        const historyForApi = messages.map(m => ({
             role: m.sender === 'bot' ? 'model' as const : 'user' as const,
             content: m.text,
         }));
         
         const input: ChatInput = {
-            history,
+            history: historyForApi,
             message: inputValue,
         };
 

@@ -65,7 +65,7 @@ const chatFlow = ai.defineFlow(
     
     const { output } = await ai.generate({
       prompt: message,
-      history: history,
+      history: history.map(h => ({...h, content: [{text: h.content}]})),
       system: systemPrompt,
       output: {
         format: 'text',
