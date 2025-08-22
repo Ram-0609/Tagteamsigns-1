@@ -23,7 +23,7 @@ export default function InstagramChat() {
       {/* Chat Window */}
       <div
         className={`
-          mb-2 w-80 rounded-lg bg-white shadow-2xl transition-all duration-300 ease-in-out
+          absolute bottom-full right-0 mb-2 w-80 rounded-lg bg-white shadow-2xl transition-all duration-300 ease-in-out
           ${isOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'}
         `}
       >
