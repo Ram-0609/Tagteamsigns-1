@@ -29,52 +29,36 @@ export default function StorefrontSignsPage() {
     <div className="flex w-full flex-col">
       <Header />
       <main>
-        <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden">
-          <Image
-            src={galleryImages[0].src}
-            alt={galleryImages[0].alt}
-            data-ai-hint={galleryImages[0].hint}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-          <div className="container relative z-10 mx-auto flex h-full max-w-[1200px] flex-col justify-end px-6 py-12 text-white md:px-12">
-            <div className="max-w-3xl">
-              <Link href="/#services" className="mb-4 inline-block">
-                <Button variant="ghost" className="bg-white/10 text-white hover:bg-white/20 hover:text-white">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Services
-                </Button>
-              </Link>
-              <h1 className="mb-4 font-headline text-5xl font-bold uppercase tracking-tight text-white md:text-7xl">
-                Storefront Signs
-              </h1>
-              <p className="text-lg text-white/90">
-                Make a lasting first impression with a high-quality storefront sign. We design, build, and install a wide variety of signs to match your brand and attract customers. From classic designs to modern illuminated displays, we have the solution for you.
-              </p>
-            </div>
+        <div className="container mx-auto max-w-[1200px] px-6 py-12 md:px-12">
+          <Link href="/#services">
+            <Button variant="ghost" className="mb-8">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Services
+            </Button>
+          </Link>
+          <div className="prose max-w-none">
+            <h1 className="mb-8 font-headline text-5xl font-bold uppercase tracking-tight text-primary md:text-7xl">
+              Storefront Signs
+            </h1>
+            <p className="text-lg">
+              Make a lasting first impression with a high-quality storefront sign. We design, build, and install a wide variety of signs to match your brand and attract customers. From classic designs to modern illuminated displays, we have the solution for you.
+            </p>
           </div>
-        </section>
+        </div>
         
-        <div className="bg-background">
-            <div className="container mx-auto max-w-[1200px] px-6 py-12 md:px-12">
-                <h2 className="mb-8 text-3xl font-bold font-headline uppercase text-primary">Gallery</h2>
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-                    {galleryImages.slice(1).map((image, index) => (
-                        <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
-                        <Image
-                            src={image.src}
-                            alt={image.alt}
-                            data-ai-hint={image.hint}
-                            width={600}
-                            height={400}
-                            className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                        />
-                        </div>
-                    ))}
-                </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3">
+          {galleryImages.map((image, index) => (
+            <div key={index} className="group relative overflow-hidden">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                data-ai-hint={image.hint}
+                width={600}
+                height={400}
+                className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+              />
             </div>
+          ))}
         </div>
 
       </main>
