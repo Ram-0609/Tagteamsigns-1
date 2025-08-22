@@ -41,13 +41,16 @@ export default function Contact() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "Thanks for reaching out. We'll get back to you soon.",
-      });
-      form.reset();
-    }, 2500);
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        toast({
+          title: "Message Sent!",
+          description: "Thanks for reaching out. We'll get back to you soon.",
+        });
+        form.reset();
+        resolve(true);
+      }, 2500);
+    });
   }
 
   return (
@@ -104,10 +107,7 @@ export default function Contact() {
                   )}
                 />
                 <div className="flex justify-end pt-2">
-                   <AnimatedSubmitButton 
-                      isSubmitting={form.formState.isSubmitting} 
-                      onClick={form.handleSubmit(onSubmit)}
-                    />
+                   <AnimatedSubmitButton />
                 </div>
               </form>
             </Form>

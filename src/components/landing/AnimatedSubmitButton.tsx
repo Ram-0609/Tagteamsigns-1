@@ -1,55 +1,40 @@
 
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, from 'react';
 import { cn } from '@/lib/utils';
+import { useFormContext } from 'react-hook-form';
 
-type AnimatedSubmitButtonProps = {
-  isSubmitting: boolean;
-  onClick: () => void;
-};
+export default function AnimatedSubmitButton() {
+  const { formState, handleSubmit } = useFormContext();
+  const [isAnimating, setIsAnimating] = React.useState(false);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
 
-export default function AnimatedSubmitButton({ isSubmitting, onClick }: AnimatedSubmitButtonProps) {
-  const [isAnimating, setIsAnimating] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const onSubmit = (values: any) => {
+    console.log("Form submitted with values:", values);
+    // Here you would typically handle the form submission, e.g., send to an API
+  };
 
   const handleClick = () => {
-    if (isSubmitting || isAnimating) return;
+    if (formState.isSubmitting || isAnimating) return;
     
     setIsAnimating(true);
-    onClick();
+    handleSubmit(onSubmit)();
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 2000); 
   };
   
-  useEffect(() => {
-    if (isAnimating) {
-        const button = buttonRef.current;
-        if (!button) return;
-
-        const rocket = button.querySelector('.rocket-icon') as HTMLElement;
-        const buttonText = button.querySelector('.button-text') as HTMLElement;
-
-        if (buttonText) buttonText.style.opacity = '0';
-        
-        button.classList.add('cracked');
-        if(rocket) rocket.classList.add('launch');
-
-        const animationTimeout = setTimeout(() => {
-            button.classList.remove('cracked');
-            if(rocket) rocket.classList.remove('launch');
+  React.useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+        setIsAnimating(true);
+        const timeout = setTimeout(() => {
             setIsAnimating(false);
-        }, 2500);
-        
-        return () => clearTimeout(animationTimeout);
+        }, 2000);
+        return () => clearTimeout(timeout);
     }
-  }, [isAnimating]);
-
-  useEffect(() => {
-    if (!isSubmitting && !isAnimating) {
-        const button = buttonRef.current;
-        const buttonText = button?.querySelector('.button-text') as HTMLElement;
-        if (buttonText) buttonText.style.opacity = '1';
-    }
-  }, [isSubmitting, isAnimating]);
+  }, [formState.isSubmitSuccessful]);
 
   return (
     <>
@@ -67,8 +52,17 @@ export default function AnimatedSubmitButton({ isSubmitting, onClick }: Animated
           border: none;
           cursor: pointer;
           overflow: hidden;
-          transition: transform 0.2s ease, background-color 0.2s ease;
+          transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
           -webkit-tap-highlight-color: transparent;
+        }
+        .animated-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        .animated-button:active:not(:disabled) {
+            transform: translateY(0);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         .animated-button:disabled {
           background-color: #fca5a5;
@@ -87,39 +81,47 @@ export default function AnimatedSubmitButton({ isSubmitting, onClick }: Animated
         }
         .animated-button::before {
           top: 0;
+          border-radius: 0.5rem 0.5rem 0 0;
         }
         .animated-button::after {
           bottom: 0;
+          border-radius: 0 0 0.5rem 0.5rem;
         }
         .animated-button.cracked::before {
-          transform: translateY(-20px) rotate(-5deg);
+          transform: translateY(-100%) rotate(-8deg);
         }
         .animated-button.cracked::after {
-          transform: translateY(20px) rotate(5deg);
+          transform: translateY(100%) rotate(8deg);
         }
         .button-text {
           position: relative;
           z-index: 2;
-          transition: opacity 0.2s ease;
+          transition: opacity 0.3s ease;
+        }
+        .animated-button.cracked .button-text {
+            opacity: 0;
         }
         .rocket-icon {
           position: absolute;
           z-index: 0;
           font-size: 1.5rem;
           opacity: 0;
-          transform: translateY(100%);
+          transform: translateY(100%) rotate(-45deg);
         }
         .rocket-icon.launch {
-          opacity: 1;
-          animation: launch 1.5s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+          animation: launch 1.5s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
         }
         @keyframes launch {
           0% {
-            transform: translateY(0) rotate(-45deg);
+            transform: translateY(20px) rotate(-45deg);
+            opacity: 1;
+          }
+          40% {
+            transform: translateY(-20px) rotate(-45deg);
             opacity: 1;
           }
           100% {
-            transform: translateY(-150px) rotate(-45deg);
+            transform: translateY(-180px) rotate(-45deg);
             opacity: 0;
           }
         }
@@ -127,13 +129,13 @@ export default function AnimatedSubmitButton({ isSubmitting, onClick }: Animated
       <button
         ref={buttonRef}
         onClick={handleClick}
-        disabled={isSubmitting || isAnimating}
-        className={cn("animated-button", isAnimating ? "cracked" : "")}
+        disabled={formState.isSubmitting || isAnimating}
+        className={cn("animated-button", (formState.isSubmitting || isAnimating) ? "cracked" : "")}
       >
         <span className="button-text">
-          {isSubmitting ? 'Sending...' : 'Submit'}
+          {formState.isSubmitting ? 'Sending...' : 'Submit'}
         </span>
-        <span className={cn("rocket-icon", isAnimating ? "launch" : "")}>🚀</span>
+        <span className={cn("rocket-icon", (formState.isSubmitting || isAnimating) ? "launch" : "")}>🚀</span>
       </button>
     </>
   );
