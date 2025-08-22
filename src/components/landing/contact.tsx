@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useOnScreen } from "@/hooks/use-on-screen";
-import { AnimatedSubmitButton } from "./animated-submit-button";
+import { Button } from "@/components/ui/button";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -52,7 +52,7 @@ export default function Contact() {
         description: "Thanks for reaching out. We'll get back to you soon.",
       });
       form.reset();
-    }, 1800);
+    }, 1000);
   }
 
   return (
@@ -110,7 +110,9 @@ export default function Contact() {
                   )}
                 />
                 <div className="flex justify-end pt-2">
-                   <AnimatedSubmitButton />
+                   <Button type="submit" disabled={form.formState.isSubmitting}>
+                      {form.formState.isSubmitting ? 'Sending...' : 'Submit'}
+                   </Button>
                 </div>
               </form>
             </Form>
