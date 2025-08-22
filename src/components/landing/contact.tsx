@@ -118,11 +118,11 @@ export default function Contact() {
             <h3 className="text-2xl font-bold font-headline text-primary">We can't wait to hear from you</h3>
              <div className="my-4">
               <Image 
-                src="https://static.wixstatic.com/media/282ef0_32249e088a5348a486e41416e788b17a~mv2.png/v1/fill/w_200,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/TAGTEAMSIGNS%20COMMERCIAL_Logo2.png" 
+                src="https://static.wixstatic.com/media/282ef0_f8641caf199947b1944fb871f59f3e25~mv2.png/v1/fill/w_284,h_50,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/TAGTEAMSIGNS%20COMMERCIAL_Logo2.png" 
                 alt="TagTeamSigns Commercial Logo"
                 data-ai-hint="company logo" 
-                width={200}
-                height={100}
+                width={284}
+                height={50}
                 />
             </div>
             <div className="space-y-4 text-foreground">
