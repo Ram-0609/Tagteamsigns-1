@@ -36,7 +36,7 @@ export default function CommercialSignsPage() {
             </Button>
           </Link>
           <div className="prose max-w-none">
-            <h1 className="mb-8 font-headline text-5xl font-bold uppercase tracking-tight md:text-7xl">
+            <h1 className="mb-8 font-headline text-5xl font-bold uppercase tracking-tight text-primary md:text-7xl">
               Commercial Signs
             </h1>
             <p className="text-lg">
