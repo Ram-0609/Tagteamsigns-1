@@ -51,22 +51,15 @@ export default function CommercialSignsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3">
           {galleryImages.map((image, index) => (
-            <div key={index} className="flip-card group aspect-square">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <Image
+            <div key={index} className="aspect-square">
+                <Image
                     src={image.src}
                     alt={image.alt}
                     data-ai-hint={image.hint}
                     width={600}
                     height={400}
                     className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="flip-card-back bg-white p-6 flex items-center justify-center text-center">
-                    <p className="text-foreground">{image.description}</p>
-                </div>
-              </div>
+                />
             </div>
           ))}
         </div>
