@@ -81,6 +81,12 @@ const nextConfig: NextConfig = {
         hostname: 'images.pexels.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'gm8-expresspermits.b-cdn.net',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

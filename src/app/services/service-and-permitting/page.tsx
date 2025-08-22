@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const galleryImages = [
   {
-    src: 'https://media.istockphoto.com/id/1388925360/photo/business-lawyer-notary-stamping-agreement-company-secretary-official-document-validity.jpg?s=612x612&w=0&k=20&c=H6SlpM8XdrjSUp9mUpPnft7_uUAjtH6-aYY1xkHdN-g=',
+    src: 'https://gm8-expresspermits.b-cdn.net/wp-content/uploads/2019/01/approved-permit-application.jpg',
     alt: 'Sign permitting process documentation',
     hint: 'sign permit',
     description: "We navigate the complexities of sign permitting for you, ensuring your project is compliant with all local regulations from the start.",
