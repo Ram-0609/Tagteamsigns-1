@@ -10,16 +10,19 @@ const galleryImages = [
     src: 'https://media.istockphoto.com/id/1388925360/photo/business-lawyer-notary-stamping-agreement-company-secretary-official-document-validity.jpg?s=612x612&w=0&k=20&c=H6SlpM8XdrjSUp9mUpPnft7_uUAjtH6-aYY1xkHdN-g=',
     alt: 'Sign permitting process documentation',
     hint: 'sign permit',
+    description: "We navigate the complexities of sign permitting for you, ensuring your project is compliant with all local regulations from the start.",
   },
   {
     src: 'https://media.istockphoto.com/id/1445807259/photo/business-people-doing-calculations-analyze-the-work-at-the-meeting.jpg?s=612x612&w=0&k=20&c=I1iGLJ15sDfGI13KpPV_Vmpyu9fRYcfdY7187E2gRhc=',
     alt: 'Team servicing an outdoor sign',
     hint: 'sign service',
+    description: "Our comprehensive sign servicing ensures your investment remains vibrant and functional for years to come.",
   },
   {
     src: 'https://images.pexels.com/photos/7682340/pexels-photo-7682340.jpeg?cs=srgb&dl=pexels-mikhail-nilov-7682340.jpg&fm=jpg',
     alt: 'Crane installing a large commercial sign',
     hint: 'sign installation',
+    description: "Our professional installation team handles everything with precision and care, from small storefront signs to large-scale commercial installations.",
   },
 ];
 
@@ -47,15 +50,22 @@ export default function ServiceAndPermittingPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3">
           {galleryImages.map((image, index) => (
-            <div key={index} className="group relative overflow-hidden">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                data-ai-hint={image.hint}
-                width={600}
-                height={400}
-                className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-              />
+            <div key={index} className="flip-card group aspect-square">
+              <div className="flip-card-inner group-hover:rotate-y-180">
+                <div className="flip-card-front">
+                    <Image
+                        src={image.src}
+                        alt={image.alt}
+                        data-ai-hint={image.hint}
+                        width={600}
+                        height={400}
+                        className="h-full w-full object-cover"
+                    />
+                </div>
+                <div className="flip-card-back bg-white p-6 flex items-center justify-center text-center">
+                    <p className="text-foreground">{image.description}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

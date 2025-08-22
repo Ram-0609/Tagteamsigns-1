@@ -10,16 +10,19 @@ const galleryImages = [
     src: 'https://www.identitygroup.com/wp-content/uploads/2024/09/What-is-a-Monument-Sign-A-Beginners-Guide.png',
     alt: 'Elegant monument sign for a business park',
     hint: 'monument sign',
+    description: 'Custom-designed monument signs that make a powerful first impression at your corporate entrance.',
   },
   {
     src: 'https://tuppsigns.com/wp-content/uploads/2021/09/How-to-Keep-Your-Monument-Sign-Looking-Brand-New.png',
     alt: 'Brick monument sign with dimensional letters',
     hint: 'monument sign brick',
+    description: 'Durable and classic brick monument signs that add a touch of timeless elegance to your property.',
   },
   {
     src: 'https://www.smithsteelworks.com/wp-content/uploads/2022/07/Welcome-To-Monument-Signs.jpg',
     alt: 'Modern monument sign with LED lighting',
     hint: 'monument sign modern',
+    description: 'Sleek, modern monument signs with integrated LED lighting to ensure your brand stands out, day or night.',
   },
 ];
 
@@ -47,15 +50,22 @@ export default function MonumentSignsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3">
           {galleryImages.map((image, index) => (
-            <div key={index} className="group relative overflow-hidden">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                data-ai-hint={image.hint}
-                width={600}
-                height={400}
-                className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-              />
+            <div key={index} className="flip-card group aspect-square">
+              <div className="flip-card-inner group-hover:rotate-y-180">
+                <div className="flip-card-front">
+                    <Image
+                        src={image.src}
+                        alt={image.alt}
+                        data-ai-hint={image.hint}
+                        width={600}
+                        height={400}
+                        className="h-full w-full object-cover"
+                    />
+                </div>
+                <div className="flip-card-back bg-white p-6 flex items-center justify-center text-center">
+                    <p className="text-foreground">{image.description}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
