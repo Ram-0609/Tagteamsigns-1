@@ -89,7 +89,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-white">
       <div className="container flex h-16 max-w-[1200px] items-center justify-between px-6 md:px-12">
         <a href="/#home" className="flex items-center gap-2">
-          <Image src="https://static.wixstatic.com/media/282ef0_d743603b2f1741c7b0f5d23474357135~mv2.png/v1/fill/w_451,h_78,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/TAGTEAMSIGNS%20COMMERCIAL_Logo.png" alt="TAGTEAMSIGNS Logo" width={180} height={31} data-ai-hint="logo" />
+          <Image src="https://i.postimg.cc/mD4J37N6/tag-team-logo-2.png" alt="TAGTEAMSIGNS Logo" width={180} height={31} data-ai-hint="logo" />
         </a>
         <nav ref={navRef} className="relative hidden items-center space-x-4 md:flex">
           {navLinks.map((link) => (
