@@ -72,26 +72,26 @@ export default function AnimatedSubmitButton() {
         .animated-button::after {
           content: '';
           position: absolute;
-          top: 0;
-          width: 50%;
-          height: 100%;
+          left: 0;
+          width: 100%;
+          height: 50%;
           background: #E21F26;
           transition: transform 0.4s cubic-bezier(0.83, 0, 0.17, 1);
           z-index: 1;
         }
         .animated-button::before {
-          left: 0;
-          border-radius: 0.5rem 0 0 0.5rem;
+          top: 0;
+          border-radius: 0.5rem 0.5rem 0 0;
         }
         .animated-button::after {
-          right: 0;
-          border-radius: 0 0.5rem 0.5rem 0;
+          bottom: 0;
+          border-radius: 0 0 0.5rem 0.5rem;
         }
         .animated-button.cracked::before {
-          transform: translateX(-100%) rotate(-8deg);
+          transform: translateY(-100%) rotate(-8deg);
         }
         .animated-button.cracked::after {
-          transform: translateX(100%) rotate(8deg);
+          transform: translateY(100%) rotate(8deg);
         }
         .button-text {
           position: relative;
@@ -168,7 +168,7 @@ export default function AnimatedSubmitButton() {
         className={cn("animated-button", (formState.isSubmitting || isAnimating) ? "cracked" : "")}
       >
         <span className="button-text">
-          {formState.isSubmitting ? 'Sending...' : formState.isSubmitSuccessful ? 'Sent!' : 'Submit'}
+          {formState.isSubmitting ? 'Sending...' : formState.isSubmitSuccessful ? 'Submit' : 'Submit'}
         </span>
         <span className={cn("rocket-icon", (formState.isSubmitting || isAnimating) ? "launch" : "")}>🚀</span>
         <div className="smoke-container">
