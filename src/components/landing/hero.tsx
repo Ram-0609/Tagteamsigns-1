@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="w-full bg-primary text-black overflow-hidden"
+      className="w-full bg-primary text-white overflow-hidden"
       aria-labelledby="hero-heading"
     >
       <div className="container mx-auto flex min-h-[70vh] max-w-[1200px] items-center justify-end px-6 md:px-12">

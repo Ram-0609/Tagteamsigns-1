@@ -10,7 +10,7 @@ export default function About() {
     <section 
       id="about" 
       ref={ref}
-      className="relative w-full py-20 text-black md:py-28 overflow-hidden"
+      className="relative w-full py-20 text-foreground md:py-28 overflow-hidden"
       aria-labelledby="about-heading"
     >
       <div 
@@ -27,12 +27,12 @@ export default function About() {
         <div className={`max-w-2xl text-left`}>
            <div className={`curtain-animate ${isTextOnScreen ? 'curtain-animate-in' : ''}`}>
             <div className="mb-4 h-1 w-16 bg-primary"></div>
-            <h2 id="about-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight text-black md:mb-12 md:text-8xl">
+            <h2 id="about-heading" className="mb-8 font-headline text-7xl font-bold uppercase tracking-tight text-foreground md:mb-12 md:text-8xl">
               <div>Who</div>
               <div>We Are</div>
             </h2>
           </div>
-          <div className="space-y-4 text-base leading-relaxed text-black md:text-lg">
+          <div className="space-y-4 text-base leading-relaxed text-foreground md:text-lg">
             <p className={`curtain-animate ${isTextOnScreen ? 'curtain-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>
               We are a Full Service Sign Company with Over 20 Years in the Industry. We specialize in Commercial Building Signs, Storefront Signs and Monument Signs!
             </p>
