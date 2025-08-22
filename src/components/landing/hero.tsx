@@ -21,9 +21,9 @@ export default function Hero() {
             className={`font-headline font-black uppercase leading-none tracking-tighter text-[clamp(4rem,10vw,5.75rem)]`}
           >
             <div className={`hero-animate ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '0ms' }}>SIGNS</div>
-            <div className={`hero-animate ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>DESIGN</div>
-            <div className={`hero-animate ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '200ms' }}>BUILD</div>
-            <div className={`hero-animate ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '300ms' }}>INSTALL</div>
+            <div className={`hero-animate text-foreground ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '100ms' }}>DESIGN</div>
+            <div className={`hero-animate text-foreground ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '200ms' }}>BUILD</div>
+            <div className={`hero-animate text-foreground ${isOnScreen ? 'hero-animate-in' : ''}`} style={{ transitionDelay: '300ms' }}>INSTALL</div>
           </h1>
         </div>
       </div>
