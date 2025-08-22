@@ -4,12 +4,12 @@ import Image from 'next/image';
 import { useOnScreen } from '@/hooks/use-on-screen';
 
 const galleryItems = [
-  { src: "https://static.wixstatic.com/media/282ef0_e357c3f3d41b4f43ae84bb7c5677cd97~mv2.jpg/v1/fill/w_600,h_600,fp_0.51_0.51,q_90/282ef0_e357c3f3d41b4f43ae84bb7c5677cd97~mv2.jpg", alt: "Custom storefront sign", hint: "storefront sign" },
-  { src: "https://static.wixstatic.com/media/282ef0_2abe8015ccb34426a853b0d5071c4c79~mv2.jpg/v1/fill/w_600,h_600,q_90/282ef0_2abe8015ccb34426a853b0d5071c4c79~mv2.jpg", alt: "Storefront sign example", hint: "storefront sign" },
-  { src: "https://static.wixstatic.com/media/282ef0_b59b063b2f6949b3832e5bcab1ec9f21~mv2.jpg/v1/fill/w_600,h_600,fp_0.48_0.48,q_90/282ef0_b59b063b2f6949b3832e5bcab1ec9f21~mv2.jpg", alt: "Commercial sign example", hint: "commercial sign" },
-  { src: "https://static.wixstatic.com/media/282ef0_49577ce71b394d1da77d3fd360995bff~mv2.jpg/v1/fill/w_600,h_600,q_90/282ef0_49577ce71b394d1da77d3fd360995bff~mv2.jpg", alt: "Monument sign example", hint: "monument sign" },
-  { src: "https://static.wixstatic.com/media/282ef0_e36878464fd742c9b815b5f70472d674~mv2.jpg/v1/fill/w_600,h_600,fp_0.48_0.48,q_90/282ef0_e36878464fd742c9b815b5f70472d674~mv2.jpg", alt: "LED sign example", hint: "led sign" },
-  { src: "https://static.wixstatic.com/media/282ef0_c745e3d5d2624c038d197ad1fc7ea28f~mv2.jpg/v1/fill/w_600,h_600,fp_0.51_0.51,q_90/282ef0_c745e3d5d2624c038d197ad1fc7ea28f~mv2.jpg", alt: "Custom sign example", hint: "custom sign" },
+  { src: "https://static.wixstatic.com/media/282ef0_e357c3f3d41b4f43ae84bb7c5677cd97~mv2.jpg/v1/fill/w_600,h_600,fp_0.51_0.51,q_90/282ef0_e357c3f3d41b4f43ae84bb7c5677cd97~mv2.jpg", alt: "Custom storefront sign", hint: "storefront sign", description: "Eye-catching custom storefront sign designed to attract customers." },
+  { src: "https://static.wixstatic.com/media/282ef0_2abe8015ccb34426a853b0d5071c4c79~mv2.jpg/v1/fill/w_600,h_600,q_90/282ef0_2abe8015ccb34426a853b0d5071c4c79~mv2.jpg", alt: "Storefront sign example", hint: "storefront sign", description: "Another example of our high-quality storefront signage." },
+  { src: "https://static.wixstatic.com/media/282ef0_b59b063b2f6949b3832e5bcab1ec9f21~mv2.jpg/v1/fill/w_600,h_600,fp_0.48_0.48,q_90/282ef0_b59b063b2f6949b3832e5bcab1ec9f21~mv2.jpg", alt: "Commercial sign example", hint: "commercial sign", description: "Professional and durable signs for commercial properties." },
+  { src: "https://static.wixstatic.com/media/282ef0_49577ce71b394d1da77d3fd360995bff~mv2.jpg/v1/fill/w_600,h_600,q_90/282ef0_49577ce71b394d1da77d3fd360995bff~mv2.jpg", alt: "Monument sign example", hint: "monument sign", description: "Elegant and impressive monument signs for property entrances." },
+  { src: "https://static.wixstatic.com/media/282ef0_e36878464fd742c9b815b5f70472d674~mv2.jpg/v1/fill/w_600,h_600,fp_0.48_0.48,q_90/282ef0_e36878464fd742c9b815b5f70472d674~mv2.jpg", alt: "LED sign example", hint: "led sign", description: "Bright and efficient LED signs for maximum visibility." },
+  { src: "https://static.wixstatic.com/media/282ef0_c745e3d5d2624c038d197ad1fc7ea28f~mv2.jpg/v1/fill/w_600,h_600,fp_0.51_0.51,q_90/282ef0_c745e3d5d2624c038d197ad1fc7ea28f~mv2.jpg", alt: "Custom sign example", hint: "custom sign", description: "A unique custom sign tailored to our client's brand." },
 ];
 
 export default function Work() {
@@ -37,15 +37,22 @@ export default function Work() {
       <div className="bg-background">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {galleryItems.map((item, index) => (
-            <div key={index} className="overflow-hidden aspect-square">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                data-ai-hint={item.hint}
-                width={600}
-                height={600}
-                className="h-full w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
-              />
+            <div key={index} className="flip-card group overflow-hidden aspect-square">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    data-ai-hint={item.hint}
+                    width={600}
+                    height={600}
+                    className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="flip-card-back bg-white p-6 flex items-center justify-center text-center">
+                  <p className="text-foreground">{item.description}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
