@@ -1,3 +1,6 @@
+
+'use client';
+
 import Header from '@/components/landing/header';
 import Hero from '@/components/landing/hero';
 import Services from '@/components/landing/services';
@@ -6,9 +9,9 @@ import Work from '@/components/landing/work';
 import Contact from '@/components/landing/contact';
 import Footer from '@/components/landing/footer';
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="flex w-full flex-col relative">
+    <div className="flex w-full flex-col">
       <Header />
       <main>
         <Hero />
