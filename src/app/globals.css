@@ -265,6 +265,19 @@ input, textarea {
   .flip-card-back {
     transform: rotateY(180deg);
   }
+
+   /* Chatbot styles */
+  .chatbot-widget {
+    transition: all 0.3s ease-in-out;
+  }
+  .chatbot-widget.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .chatbot-widget.closed {
+    transform: translateY(calc(100% - 80px));
+    opacity: 0;
+  }
 }
 
     

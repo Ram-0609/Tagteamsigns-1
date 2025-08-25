@@ -5,6 +5,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import React, { useEffect } from 'react';
+import Chatbot from '@/components/landing/Chatbot';
 
 export default function RootLayout({
   children,
@@ -15,12 +16,13 @@ export default function RootLayout({
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
 
-      // Prevent effect on buttons and inputs
+      // Prevent effect on buttons, inputs, and chatbot
       if (
         target.tagName.toLowerCase() === 'button' ||
         target.tagName.toLowerCase() === 'input' ||
         target.tagName.toLowerCase() === 'textarea' ||
-        target.closest('button')
+        target.closest('button') ||
+        target.closest('[data-chatbot-area]')
       ) {
         return;
       }
@@ -72,6 +74,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         {children}
+        <Chatbot />
         <Toaster />
       </body>
     </html>
