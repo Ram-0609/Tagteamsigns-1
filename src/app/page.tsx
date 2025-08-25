@@ -5,7 +5,6 @@ import About from '@/components/landing/about';
 import Work from '@/components/landing/work';
 import Contact from '@/components/landing/contact';
 import Footer from '@/components/landing/footer';
-import InstagramChat from '@/components/landing/InstagramChat';
 
 export default function HomePage() {
   return (
@@ -19,7 +18,6 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
-      <InstagramChat />
     </div>
   );
 }
