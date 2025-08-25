@@ -51,15 +51,22 @@ export default function StorefrontSignsPage() {
         
         <div className="grid grid-cols-1 sm:grid-cols-3">
           {galleryImages.map((image, index) => (
-            <div key={index} className="aspect-square group overflow-hidden">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  data-ai-hint={image.hint}
-                  width={600}
-                  height={400}
-                  className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                />
+            <div key={index} className="flip-card group aspect-square">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <Image
+                      src={image.src}
+                      alt={image.alt}
+                      data-ai-hint={image.hint}
+                      width={600}
+                      height={400}
+                      className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flip-card-back bg-white p-6 flex items-center justify-center text-center">
+                  <p className="text-foreground">{image.description}</p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
