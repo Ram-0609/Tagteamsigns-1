@@ -68,7 +68,7 @@ export default function Chatbot() {
 
   return (
     <div data-chatbot-area className="fixed bottom-4 right-4 z-50">
-      <div className={cn("chatbot-widget w-80 h-[28rem] flex-col rounded-lg border bg-card shadow-2xl overflow-hidden", isOpen ? 'flex' : 'hidden')}>
+      <div className={cn("chatbot-widget w-80 h-[28rem] flex-col rounded-lg border bg-card shadow-2xl overflow-hidden transition-all duration-300 ease-in-out", isOpen ? 'flex opacity-100 translate-y-0' : 'hidden opacity-0 translate-y-4')}>
         <div className="flex items-center justify-between bg-primary p-3 text-primary-foreground">
           <div className="flex items-center gap-2">
             <Bot className="h-6 w-6" />
