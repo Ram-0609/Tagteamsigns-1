@@ -278,6 +278,27 @@ input, textarea {
     transform: translateY(calc(100% - 80px));
     opacity: 0;
   }
-}
 
-    
+  /* Spin Wheel Styles */
+  .spin-wheel-popup-enter {
+    animation: popup-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .spin-wheel-popup-leave {
+    animation: popup-leave 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  @keyframes popup-enter {
+    from { opacity: 0; transform: scale(0.8) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes popup-leave {
+    from { opacity: 1; transform: scale(1) translateY(0); }
+    to { opacity: 0; transform: scale(0.8) translateY(20px); }
+  }
+  @keyframes result-banner-enter {
+    from { opacity: 0; transform: translateY(20px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .result-banner-enter {
+    animation: result-banner-enter 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  }
+}

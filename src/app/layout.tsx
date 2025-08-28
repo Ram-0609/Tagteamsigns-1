@@ -4,14 +4,17 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Chatbot from '@/components/landing/Chatbot';
+import SpinWheel from '@/components/landing/SpinWheel';
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [showSpinWheel, setShowSpinWheel] = useState(false);
+
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -22,7 +25,8 @@ export default function RootLayout({
         target.tagName.toLowerCase() === 'input' ||
         target.tagName.toLowerCase() === 'textarea' ||
         target.closest('button') ||
-        target.closest('[data-chatbot-area]')
+        target.closest('[data-chatbot-area]') ||
+        target.closest('[data-spin-wheel-area]')
       ) {
         return;
       }
@@ -60,6 +64,15 @@ export default function RootLayout({
 
     document.addEventListener('click', handleClick);
 
+    const hasSeenSpinWheel = sessionStorage.getItem('hasSeenSpinWheel');
+    if (!hasSeenSpinWheel) {
+      const timer = setTimeout(() => {
+        setShowSpinWheel(true);
+        sessionStorage.setItem('hasSeenSpinWheel', 'true');
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+
     return () => {
       document.removeEventListener('click', handleClick);
     };
@@ -73,6 +86,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@800;900&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
+        {showSpinWheel && <SpinWheel onClose={() => setShowSpinWheel(false)} />}
         {children}
         <Chatbot />
         <Toaster />
