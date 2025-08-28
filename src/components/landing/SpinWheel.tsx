@@ -1,20 +1,10 @@
 
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { X, Gift, Repeat, ChevronLeft, ChevronRight, AlertTriangle, Biohazard, Radiation } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, ChevronLeft, ChevronRight, AlertTriangle, Biohazard, Radiation } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { useToast } from "@/hooks/use-toast";
-
-const offers = [
-  { type: 'discount', value: '50%', label: '50% OFF' },
-  { type: 'gift', value: 'Free Gift', label: 'FREE GIFT' },
-  { type: 'discount', value: '10%', label: '10% OFF' },
-  { type: 'try-again', value: 'Try Again', label: 'TRY AGAIN' },
-  { type: 'discount', value: '20%', label: '20% OFF' },
-  { type: 'discount', value: '5%', label: '5% OFF' },
-];
 
 const offerSlides = [
     { title: "DANGER: HIGHLY VISIBLE SIGNS", description: "Get 25% off on all LED-illuminated signs.", icon: AlertTriangle },
@@ -22,7 +12,7 @@ const offerSlides = [
     { title: "RADIOACTIVE SAVINGS", description: "A glowing 15% discount on custom designs.", icon: Radiation },
     { title: "CAUTION: HEAVY-DUTY DISCOUNTS", description: "20% off durable monument signs that last.", icon: AlertTriangle },
     { title: "TOXIC-LEVEL OFFERS AHEAD", description: "Free permitting with any project over $2500.", icon: Biohazard },
-    { title: "RISK OF EXTREME SATISFACTION", description: "Our quality is dangerously good. Spin to win!", icon: Radiation },
+    { title: "RISK OF EXTREME SATISFACTION", description: "Our quality is dangerously good. Check our offers!", icon: Radiation },
 ];
 
 
@@ -31,46 +21,12 @@ interface SpinWheelProps {
 }
 
 export default function SpinWheel({ onClose }: SpinWheelProps) {
-  const [isSpinning, setIsSpinning] = useState(false);
-  const [spinResult, setSpinResult] = useState<string | null>(null);
-  const [finalAngle, setFinalAngle] = useState(0);
-  const [spinDuration, setSpinDuration] = useState(5000);
   const [isClosing, setIsClosing] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const wheelRef = useRef<HTMLDivElement>(null);
-  const { toast } = useToast();
   
   const handleClose = () => {
     setIsClosing(true);
     setTimeout(onClose, 500);
-  };
-
-  const handleSpin = () => {
-    if (isSpinning) return;
-    
-    const newSpinDuration = Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000;
-    setSpinDuration(newSpinDuration);
-    
-    setIsSpinning(true);
-    setSpinResult(null);
-
-    const spinCycles = 5;
-    const winningSegmentIndex = Math.floor(Math.random() * offers.length);
-    const segmentAngle = 360 / offers.length;
-    const randomOffset = Math.random() * segmentAngle - (segmentAngle / 2);
-    const newFinalAngle = (spinCycles * 360) + (winningSegmentIndex * segmentAngle) + randomOffset;
-    
-    setFinalAngle(newFinalAngle);
-
-    setTimeout(() => {
-      const result = offers[winningSegmentIndex];
-      setSpinResult(result.label);
-      setIsSpinning(false);
-      toast({
-        title: "Congratulations!",
-        description: `You won: ${result.label}`,
-      });
-    }, newSpinDuration);
   };
 
   useEffect(() => {
@@ -106,74 +62,8 @@ export default function SpinWheel({ onClose }: SpinWheelProps) {
         </Button>
         
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-extrabold uppercase font-headline tracking-tight text-primary">Spin to Win!</h2>
-          <p className="text-white/80 mt-1">Get exclusive offers on your next sign project.</p>
-        </div>
-
-        <div className="relative w-72 h-72 md:w-80 md:h-80 mx-auto flex items-center justify-center">
-            {/* Pointer */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10" style={{ filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.5))' }}>
-                <div className="w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-t-[25px] border-t-primary"></div>
-            </div>
-            
-            {/* Wheel */}
-            <div 
-              ref={wheelRef}
-              className="absolute w-full h-full rounded-full border-4 border-primary/50 bg-secondary shadow-inner transition-transform ease-out"
-              style={{ 
-                transform: `rotate(${finalAngle}deg)`,
-                transitionDuration: `${spinDuration}ms`
-              }}
-            >
-              <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%)' }}></div>
-              {offers.map((offer, index) => {
-                const rotation = (360 / offers.length) * index;
-                const skew = 90 - (360 / offers.length);
-                return (
-                  <div 
-                    key={index} 
-                    className="absolute w-1/2 h-1/2 origin-bottom-right" 
-                    style={{ transform: `rotate(${rotation}deg)` }}
-                  >
-                    <div 
-                      className="absolute w-full h-full origin-bottom-right flex items-center justify-center"
-                      style={{ 
-                        transform: `skewY(-${skew}deg) rotate(${(360 / offers.length) / 2}deg)`,
-                        background: index % 2 === 0 ? '#111' : '#222'
-                      }}
-                    >
-                      <div 
-                        className="flex flex-col items-center justify-center text-white font-semibold uppercase text-xs md:text-sm" 
-                        style={{ transform: `skewY(${skew}deg) rotate(-${(360 / offers.length) / 2}deg)`}}
-                      >
-                         {offer.type === 'gift' ? <Gift className="w-5 h-5 md:w-6 md:h-6 mb-1 text-primary" /> : null}
-                         {offer.type === 'try-again' ? <Repeat className="w-5 h-5 md:w-6 md:h-6 mb-1" /> : null}
-                        <span>{offer.label}</span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Center Button */}
-            <Button
-              onClick={handleSpin}
-              disabled={isSpinning || !!spinResult}
-              className="relative z-10 h-20 w-20 md:h-24 md:w-24 rounded-full bg-primary border-4 border-white text-lg font-bold uppercase shadow-lg transition-transform hover:scale-105 disabled:bg-primary/70 disabled:scale-100 disabled:cursor-not-allowed"
-            >
-              {isSpinning ? '...' : spinResult ? 'Done' : 'Spin'}
-            </Button>
-        </div>
-
-        {/* Result Banner */}
-        <div className="h-16 mt-6 flex items-center justify-center">
-            {spinResult && !isSpinning && (
-                <div className="result-banner-enter bg-black border border-primary p-3 rounded-lg shadow-lg text-center opacity-0">
-                    <p className="text-white/80 text-sm">Congratulations! You won:</p>
-                    <p className="font-bold text-xl text-primary font-headline tracking-wide">{spinResult}</p>
-                </div>
-            )}
+          <h2 className="text-3xl font-extrabold uppercase font-headline tracking-tight text-primary">Special Offers!</h2>
+          <p className="text-white/80 mt-1">Check out our latest deals on sign projects.</p>
         </div>
 
         {/* Offer Carousel */}
@@ -200,11 +90,10 @@ export default function SpinWheel({ onClose }: SpinWheelProps) {
         
         <div className="mt-6 text-center">
             <Button 
-                onClick={spinResult ? handleClose : handleSpin} 
-                disabled={isSpinning}
+                onClick={handleClose} 
                 className="w-full bg-primary text-primary-foreground font-bold uppercase tracking-wider py-3 rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
             >
-              {spinResult ? 'Claim Offer & Continue' : 'Spin Now!'}
+              Continue to Site
             </Button>
         </div>
 
