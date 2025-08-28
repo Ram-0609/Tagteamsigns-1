@@ -34,6 +34,7 @@ export default function SpinWheel({ onClose }: SpinWheelProps) {
   const [isSpinning, setIsSpinning] = useState(false);
   const [spinResult, setSpinResult] = useState<string | null>(null);
   const [finalAngle, setFinalAngle] = useState(0);
+  const [spinDuration, setSpinDuration] = useState(5000);
   const [isClosing, setIsClosing] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const wheelRef = useRef<HTMLDivElement>(null);
@@ -46,6 +47,10 @@ export default function SpinWheel({ onClose }: SpinWheelProps) {
 
   const handleSpin = () => {
     if (isSpinning) return;
+    
+    const newSpinDuration = Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000;
+    setSpinDuration(newSpinDuration);
+    
     setIsSpinning(true);
     setSpinResult(null);
 
@@ -65,7 +70,7 @@ export default function SpinWheel({ onClose }: SpinWheelProps) {
         title: "Congratulations!",
         description: `You won: ${result.label}`,
       });
-    }, 5000); // Corresponds to animation duration
+    }, newSpinDuration);
   };
 
   useEffect(() => {
@@ -114,8 +119,11 @@ export default function SpinWheel({ onClose }: SpinWheelProps) {
             {/* Wheel */}
             <div 
               ref={wheelRef}
-              className="absolute w-full h-full rounded-full border-4 border-primary/50 bg-secondary shadow-inner transition-transform duration-[5000ms] ease-out"
-              style={{ transform: `rotate(${finalAngle}deg)` }}
+              className="absolute w-full h-full rounded-full border-4 border-primary/50 bg-secondary shadow-inner transition-transform ease-out"
+              style={{ 
+                transform: `rotate(${finalAngle}deg)`,
+                transitionDuration: `${spinDuration}ms`
+              }}
             >
               <div className="absolute inset-0 rounded-full" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%)' }}></div>
               {offers.map((offer, index) => {
