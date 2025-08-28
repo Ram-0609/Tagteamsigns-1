@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Gift, Repeat, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, Gift, Repeat, ChevronLeft, ChevronRight, AlertTriangle, Biohazard, Radiation } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useToast } from "@/hooks/use-toast";
@@ -17,11 +17,14 @@ const offers = [
 ];
 
 const offerSlides = [
-    { title: "FLAT 20% OFF", description: "On all storefront sign installations." },
-    { title: "FREE PERMITTING", description: "With any commercial sign project over $5000." },
-    { title: "50% OFF DESIGN", description: "Get 50% off on your next sign design project." },
-    { title: "10% EXTRA DISCOUNT", description: "For returning customers on any service." },
+    { title: "DANGER: HIGHLY VISIBLE SIGNS", description: "Get 25% off on all LED-illuminated signs.", icon: AlertTriangle },
+    { title: "WARNING: CONTAGIOUSLY GOOD DEALS", description: "Biohazard-level savings on storefront signs.", icon: Biohazard },
+    { title: "RADIOACTIVE SAVINGS", description: "A glowing 15% discount on custom designs.", icon: Radiation },
+    { title: "CAUTION: HEAVY-DUTY DISCOUNTS", description: "20% off durable monument signs that last.", icon: AlertTriangle },
+    { title: "TOXIC-LEVEL OFFERS AHEAD", description: "Free permitting with any project over $2500.", icon: Biohazard },
+    { title: "RISK OF EXTREME SATISFACTION", description: "Our quality is dangerously good. Spin to win!", icon: Radiation },
 ];
+
 
 interface SpinWheelProps {
   onClose: () => void;
@@ -167,14 +170,17 @@ export default function SpinWheel({ onClose }: SpinWheelProps) {
 
         {/* Offer Carousel */}
         <div className="mt-4 relative h-28">
-            <div className="overflow-hidden rounded-lg">
+            <div className="overflow-hidden rounded-lg bg-black/30 border border-yellow-400/50 p-1">
                 <div 
                     className="flex transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${currentSlide * 100}%)`}}
                 >
                     {offerSlides.map((slide, index) => (
-                        <div key={index} className="w-full flex-shrink-0 p-4 bg-secondary rounded-lg text-center">
-                            <h4 className="font-bold text-lg text-primary font-headline">{slide.title}</h4>
+                        <div key={index} className="w-full flex-shrink-0 p-4 bg-secondary rounded-lg text-center flex flex-col items-center justify-center">
+                            <div className="flex items-center gap-2 mb-1">
+                                <slide.icon className="w-5 h-5 text-yellow-400" />
+                                <h4 className="font-bold text-base text-yellow-300 font-headline uppercase">{slide.title}</h4>
+                            </div>
                             <p className="text-sm text-white/70">{slide.description}</p>
                         </div>
                     ))}
